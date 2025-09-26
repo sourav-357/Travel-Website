@@ -1,0 +1,74 @@
+{
+  "name": "TravelJournal",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Journal entry title"
+    },
+    "destination": {
+      "type": "string",
+      "description": "Destination"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Journal date"
+    },
+    "content": {
+      "type": "string",
+      "description": "Journal content"
+    },
+    "mood": {
+      "type": "string",
+      "enum": [
+        "Amazing",
+        "Great",
+        "Good",
+        "Okay",
+        "Challenging"
+      ],
+      "description": "Travel mood"
+    },
+    "weather": {
+      "type": "string",
+      "description": "Weather description"
+    },
+    "photos": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Photo URLs"
+    },
+    "memories": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Key memories"
+    },
+    "people_met": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "People met during travel"
+    },
+    "expenses": {
+      "type": "number",
+      "description": "Daily expenses"
+    },
+    "rating": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Day rating"
+    }
+  },
+  "required": [
+    "title",
+    "destination",
+    "date"
+  ]
+}
