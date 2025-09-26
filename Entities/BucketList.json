@@ -1,0 +1,72 @@
+{
+  "name": "BucketList",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Bucket list item title"
+    },
+    "destination": {
+      "type": "string",
+      "description": "Destination"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "Destination",
+        "Experience",
+        "Adventure",
+        "Culture",
+        "Food",
+        "Nature",
+        "Event"
+      ],
+      "description": "Item category"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "Low",
+        "Medium",
+        "High",
+        "Must-do"
+      ],
+      "description": "Priority level"
+    },
+    "estimated_cost": {
+      "type": "number",
+      "description": "Estimated cost"
+    },
+    "best_time": {
+      "type": "string",
+      "description": "Best time to do this"
+    },
+    "completed": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether completed"
+    },
+    "completed_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date completed"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Item image"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Personal notes"
+    }
+  },
+  "required": [
+    "title",
+    "destination",
+    "category"
+  ]
+}
