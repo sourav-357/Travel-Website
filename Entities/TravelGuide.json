@@ -1,0 +1,44 @@
+{
+  "name": "TravelGuide",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "Packing",
+        "Budgeting",
+        "Destinations",
+        "Safety",
+        "Culture",
+        "Technology"
+      ]
+    },
+    "content": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "image_url": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "author": {
+      "type": "string",
+      "default": "Wanderlust AI"
+    }
+  },
+  "required": [
+    "title",
+    "category",
+    "content"
+  ]
+}
