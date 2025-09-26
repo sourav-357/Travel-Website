@@ -1,0 +1,116 @@
+{
+  "name": "Destination",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Destination name"
+    },
+    "country": {
+      "type": "string",
+      "description": "Country name"
+    },
+    "continent": {
+      "type": "string",
+      "enum": [
+        "Asia",
+        "Europe",
+        "North America",
+        "South America",
+        "Africa",
+        "Oceania",
+        "Antarctica"
+      ],
+      "description": "Continent"
+    },
+    "description": {
+      "type": "string",
+      "description": "Destination description"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Main destination image"
+    },
+    "gallery_images": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Gallery images"
+    },
+    "best_time_to_visit": {
+      "type": "string",
+      "description": "Best months to visit"
+    },
+    "currency": {
+      "type": "string",
+      "description": "Local currency"
+    },
+    "language": {
+      "type": "string",
+      "description": "Primary language"
+    },
+    "climate": {
+      "type": "string",
+      "description": "Climate description"
+    },
+    "highlights": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Top highlights and attractions"
+    },
+    "budget_range": {
+      "type": "string",
+      "enum": [
+        "Budget",
+        "Mid-range",
+        "Luxury",
+        "Ultra-luxury"
+      ],
+      "description": "Typical budget range"
+    },
+    "travel_style": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Adventure",
+          "Culture",
+          "Beach",
+          "City",
+          "Nature",
+          "Romance",
+          "Family",
+          "Solo",
+          "Luxury"
+        ]
+      },
+      "description": "Travel styles suited for this destination"
+    },
+    "average_rating": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Average rating"
+    },
+    "coordinates": {
+      "type": "object",
+      "properties": {
+        "lat": {
+          "type": "number"
+        },
+        "lng": {
+          "type": "number"
+        }
+      },
+      "description": "GPS coordinates"
+    }
+  },
+  "required": [
+    "name",
+    "country",
+    "continent"
+  ]
+}
