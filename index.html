@@ -10,7 +10,7 @@
     <link rel="canonical" href="/index.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
     <link rel="manifest" href="manifest.webmanifest">
@@ -29,15 +29,19 @@
 
     <main id="main">
         <section class="hero" aria-label="Hero">
+            <video class="bg-video" autoplay muted loop playsinline poster="assets/img/hero-poster.jpg">
+                <source src="assets/video/hero.mp4" type="video/mp4">
+            </video>
+            <div class="bg-overlay" aria-hidden="true"></div>
             <div class="blob blob--1" aria-hidden="true"></div>
             <div class="blob blob--2" aria-hidden="true"></div>
             <div class="container hero__grid">
                 <div class="hero__copy">
-                    <h1>Find your next unforgettable journey</h1>
-                    <p>Curated trips, transparent pricing, and tools to plan with confidence.</p>
+                    <h1>Premium trips. Zero guesswork.</h1>
+                    <p>Curated destinations, transparent pricing, and expert support — built for travelers who value time and quality.</p>
                     <form id="searchForm" class="search" role="search" aria-label="Search trips">
                         <label class="sr-only" for="searchWhere">Where</label>
-                        <input id="searchWhere" name="where" type="text" placeholder="Where to? (e.g., Bali)" autocomplete="off">
+                        <input id="searchWhere" name="where" type="text" placeholder="Try Bali, Paris, Tokyo" autocomplete="off">
                         <label class="sr-only" for="searchWhen">When</label>
                         <input id="searchWhen" name="when" type="month">
                         <label class="sr-only" for="searchType">Trip type</label>
@@ -49,13 +53,25 @@
                             <option value="culture">Culture</option>
                             <option value="nature">Nature</option>
                         </select>
-                        <button type="submit" class="btn btn--primary">Search</button>
+                        <button type="submit" class="btn btn--primary">Explore trips</button>
                     </form>
+                    <div class="chips" id="popularChips" aria-label="Popular searches">
+                        <button class="chip" data-where="Bali" data-type="beach">Bali</button>
+                        <button class="chip" data-where="Kyoto" data-type="culture">Kyoto</button>
+                        <button class="chip" data-where="Paris" data-type="city">Paris</button>
+                        <button class="chip" data-where="Iceland" data-type="adventure">Iceland</button>
+                    </div>
+                    <div class="trust">
+                        <span class="pill">✓ Vetted operators</span>
+                        <span class="pill">✓ Clear pricing</span>
+                        <span class="pill">✓ 24/7 assistance</span>
+                    </div>
                 </div>
                 <div class="hero__media">
-                    <div class="hero__card">
-                        <img src="assets/img/hero.svg" alt="Traveler overlooking a scenic coastline" loading="eager">
-                        <div class="hero__badge">Top picks 2025</div>
+                    <div class="hero__stats">
+                        <div class="stat"><h3>120k+</h3><p>happy travelers</p></div>
+                        <div class="stat"><h3>98%</h3><p>5-star reviews</p></div>
+                        <div class="stat"><h3>650+</h3><p>curated trips</p></div>
                     </div>
                 </div>
             </div>

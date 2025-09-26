@@ -135,6 +135,8 @@
       if(type) url.searchParams.set('type', type);
       location.href = url.toString();
     });
+    var chips = document.getElementById('popularChips');
+    if(chips){ chips.addEventListener('click', function(e){ var b = e.target.closest('.chip'); if(!b) return; byId('searchWhere').value = b.getAttribute('data-where')||''; var t = b.getAttribute('data-type')||''; byId('searchType').value = t; form.dispatchEvent(new Event('submit')); }); }
   }
 
   document.addEventListener('DOMContentLoaded', function(){
@@ -153,6 +155,22 @@
     } else {
       Array.prototype.forEach.call(document.querySelectorAll('.reveal'), function(el){ el.classList.add('is-visible'); });
     }
+
+    // Lightweight testimonials slider for small screens (auto-advance)
+    try{
+      var slider = document.querySelector('.testimonials');
+      if(slider && window.matchMedia('(max-width: 720px)').matches){
+        var items = slider.children;
+        var index = 0;
+        function show(i){
+          for(var k=0;k<items.length;k++){ items[k].style.display = (k===i)?'block':'none'; }
+        }
+        if(items.length>1){
+          show(index);
+          setInterval(function(){ index = (index+1) % items.length; show(index); }, 5000);
+        }
+      }
+    }catch(e){}
   });
 })();
 
