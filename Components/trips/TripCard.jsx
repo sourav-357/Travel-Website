@@ -113,6 +113,7 @@ export default function TripCard({ trip, onClick }) {
               </div>
             )}
           </div>
+          
         </CardContent>
       </Card>
     </motion.div>
