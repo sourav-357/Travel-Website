@@ -1,0 +1,124 @@
+{
+  "name": "Trip",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Trip title"
+    },
+    "destination": {
+      "type": "string",
+      "description": "Primary destination"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Trip start date"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Trip end date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "planning",
+        "upcoming",
+        "in_progress",
+        "completed",
+        "cancelled"
+      ],
+      "default": "planning",
+      "description": "Trip status"
+    },
+    "budget": {
+      "type": "number",
+      "description": "Trip budget"
+    },
+    "travelers": {
+      "type": "number",
+      "description": "Number of travelers"
+    },
+    "trip_type": {
+      "type": "string",
+      "enum": [
+        "Adventure",
+        "Culture",
+        "Beach",
+        "City",
+        "Nature",
+        "Romance",
+        "Family",
+        "Solo",
+        "Business",
+        "Luxury"
+      ],
+      "description": "Type of trip"
+    },
+    "itinerary": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "day": {
+            "type": "number"
+          },
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "activities": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "time": {
+                  "type": "string"
+                },
+                "activity": {
+                  "type": "string"
+                },
+                "location": {
+                  "type": "string"
+                },
+                "notes": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "description": "Daily itinerary"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Trip notes"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Trip cover image"
+    },
+    "packing_list": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "item": {
+            "type": "string"
+          },
+          "packed": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      },
+      "description": "Packing list for the trip"
+    }
+  },
+  "required": [
+    "title",
+    "destination"
+  ]
+}
