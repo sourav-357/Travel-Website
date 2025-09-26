@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0ea5e9">
+    <meta name="color-scheme" content="light">
+    <title>Wanderly – Explore the world, your way</title>
+    <meta name="description" content="Plan and book your next adventure with Wanderly. Discover destinations, compare packages, build your itinerary, and get inspired by our travel blog.">
+    <link rel="canonical" href="/index.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="manifest.webmanifest">
+    <script type="application/ld+json">{
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Wanderly",
+      "url": "/",
+      "potentialAction": {"@type":"SearchAction","target":"/packages.html?q={search_term_string}","query-input":"required name=search_term_string"}
+    }</script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header id="header" data-component="site-header"></header>
+
+    <main id="main">
+        <section class="hero" aria-label="Hero">
+            <div class="blob blob--1" aria-hidden="true"></div>
+            <div class="blob blob--2" aria-hidden="true"></div>
+            <div class="container hero__grid">
+                <div class="hero__copy">
+                    <h1>Find your next unforgettable journey</h1>
+                    <p>Curated trips, transparent pricing, and tools to plan with confidence.</p>
+                    <form id="searchForm" class="search" role="search" aria-label="Search trips">
+                        <label class="sr-only" for="searchWhere">Where</label>
+                        <input id="searchWhere" name="where" type="text" placeholder="Where to? (e.g., Bali)" autocomplete="off">
+                        <label class="sr-only" for="searchWhen">When</label>
+                        <input id="searchWhen" name="when" type="month">
+                        <label class="sr-only" for="searchType">Trip type</label>
+                        <select id="searchType" name="type">
+                            <option value="">Any type</option>
+                            <option value="beach">Beach</option>
+                            <option value="city">City</option>
+                            <option value="adventure">Adventure</option>
+                            <option value="culture">Culture</option>
+                            <option value="nature">Nature</option>
+                        </select>
+                        <button type="submit" class="btn btn--primary">Search</button>
+                    </form>
+                </div>
+                <div class="hero__media">
+                    <div class="hero__card">
+                        <img src="assets/img/hero.svg" alt="Traveler overlooking a scenic coastline" loading="eager">
+                        <div class="hero__badge">Top picks 2025</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="featured-heading">
+            <div class="container">
+                <div class="section__head">
+                    <span class="section-kicker">Top picks</span>
+                    <h2 id="featured-heading">Featured destinations</h2>
+                    <a class="link" href="destinations.html" aria-label="Browse all destinations">See all</a>
+                </div>
+                <div id="featuredDestinations" class="cards cards--scroll reveal"></div>
+            </div>
+        </section>
+
+        <section class="section section--alt" aria-labelledby="packages-heading">
+            <div class="container">
+                <div class="section__head">
+                    <span class="section-kicker">Hot now</span>
+                    <h2 id="packages-heading">Trending packages</h2>
+                    <a class="link" href="packages.html" aria-label="Browse all packages">View packages</a>
+                </div>
+                <div id="trendingPackages" class="cards reveal"></div>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="why-heading">
+            <div class="container">
+                <div class="feature-grid">
+                    <div class="feature">
+                        <div class="feature__icon">💎</div>
+                        <h3>Curated quality</h3>
+                        <p>We partner with vetted operators to ensure top-tier experiences and support.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature__icon">🧭</div>
+                        <h3>Plan with clarity</h3>
+                        <p>Transparent pricing, detailed inclusions, and clear cancellation policies.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature__icon">🛡️</div>
+                        <h3>Book with confidence</h3>
+                        <p>Secure checkout and 24/7 assistance for peace of mind.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--alt" aria-labelledby="blog-heading">
+            <div class="container">
+                <div class="section__head">
+                    <span class="section-kicker">Insights</span>
+                    <h2 id="blog-heading">From our travel journal</h2>
+                    <a class="link" href="blog.html" aria-label="Read the blog">All posts</a>
+                </div>
+                <div id="latestPosts" class="cards reveal"></div>
+            </div>
+        </section>
+
+        <section class="section" aria-label="Our partners">
+            <div class="container">
+                <div class="section__head">
+                    <span class="section-kicker">Trusted by</span>
+                    <h2>Leading travel brands</h2>
+                    <span></span>
+                </div>
+                <div class="logos">
+                    <div class="logo">SkyFly</div>
+                    <div class="logo">Oceanic</div>
+                    <div class="logo">TrailWorks</div>
+                    <div class="logo">Sunstay</div>
+                    <div class="logo">NomadCo</div>
+                    <div class="logo">JetHub</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--alt" aria-label="Testimonials">
+            <div class="container">
+                <div class="section__head">
+                    <span class="section-kicker">Reviews</span>
+                    <h2>Travelers love Wanderly</h2>
+                    <span></span>
+                </div>
+                <div class="testimonials reveal">
+                    <div class="testimonial"><h3>Perfect Bali getaway</h3><p>Everything was seamless—from airport pickup to snorkeling. We can\'t wait to book again!</p><p class="muted">— Priya & Arjun</p></div>
+                    <div class="testimonial"><h3>Kyoto culture done right</h3><p>Thoughtful guides and authentic experiences. The tea ceremony was a highlight.</p><p class="muted">— Hannah</p></div>
+                    <div class="testimonial"><h3>Iceland road trip of dreams</h3><p>Crystal caves, waterfalls, and the aurora. Clear plan made it stress-free.</p><p class="muted">— Diego</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" aria-label="Newsletter">
+            <div class="container">
+                <div class="newsletter">
+                    <div>
+                        <h2>Get new trips and deals in your inbox</h2>
+                        <p>Monthly, no spam. Inspiration and practical planning tips.</p>
+                    </div>
+                    <form id="newsletterForm" class="search" style="grid-template-columns:1fr auto">
+                        <input class="input" id="newsletterEmail" type="email" placeholder="you@example.com" required>
+                        <button class="btn btn--primary" type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" aria-label="Categories">
+            <div class="container">
+                <div class="section__head"><span class="section-kicker">Explore</span><h2>Popular categories</h2><span></span></div>
+                <div class="categories reveal">
+                    <div class="category">🏖️ Beach</div>
+                    <div class="category">🏙️ City</div>
+                    <div class="category">🧗 Adventure</div>
+                    <div class="category">🎭 Culture</div>
+                    <div class="category">🌿 Nature</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--alt" aria-label="How it works">
+            <div class="container">
+                <div class="section__head"><span class="section-kicker">Simple</span><h2>How it works</h2><span></span></div>
+                <div class="steps reveal">
+                    <div class="step"><h3>1. Discover</h3><p>Browse curated trips and read real traveler insights.</p></div>
+                    <div class="step"><h3>2. Plan</h3><p>Use the itinerary builder to organize dates, notes, and wishlist.</p></div>
+                    <div class="step"><h3>3. Book</h3><p>Secure checkout with transparent pricing and clear policies.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" aria-label="Stats">
+            <div class="container">
+                <div class="section__head"><span class="section-kicker">Since 2019</span><h2>By the numbers</h2><span></span></div>
+                <div class="stats reveal">
+                    <div class="stat"><h3>120k+</h3><p>Travelers served</p></div>
+                    <div class="stat"><h3>650+</h3><p>Trips curated</p></div>
+                    <div class="stat"><h3>98%</h3><p>5-star reviews</p></div>
+                    <div class="stat"><h3>45</h3><p>Countries covered</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container cta__grid">
+                <div>
+                    <h2>Build your dream itinerary</h2>
+                    <p>Shortlist places, compare packages, and export your plan. No account needed.</p>
+                </div>
+                <div>
+                    <a class="btn btn--primary" href="itinerary.html">Open itinerary builder</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer" data-component="site-footer"></footer>
+
+    <div id="modalRoot" aria-live="polite"></div>
+
+    <script src="assets/js/components.js" defer></script>
+    <script src="assets/js/app.js" defer></script>
+</body>
+</html>
+
+

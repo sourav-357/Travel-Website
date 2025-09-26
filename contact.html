@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact – Wanderly</title>
+  <meta name="description" content="Contact Wanderly for trip questions or custom itineraries.">
+  <link rel="canonical" href="/contact.html">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    @media(max-width:800px){.grid{grid-template-columns:1fr}}
+    form .field{display:flex;flex-direction:column;gap:6px}
+    form input, form textarea{border:1px solid var(--border);border-radius:10px;padding:.7rem .8rem;font:inherit}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header id="header" data-component="site-header"></header>
+  <main id="main" class="section">
+    <div class="container">
+      <h1>Contact us</h1>
+      <p>Questions about a trip or custom plan? Send us a message.</p>
+      <div class="grid">
+        <form id="contactForm">
+          <div class="field"><label for="name">Name</label><input id="name" required></div>
+          <div class="field"><label for="email">Email</label><input id="email" type="email" required></div>
+          <div class="field"><label for="message">Message</label><textarea id="message" rows="6" required></textarea></div>
+          <button class="btn btn--primary" type="submit">Send</button>
+          <p id="contactStatus" class="muted"></p>
+        </form>
+        <div>
+          <div class="feature"><div class="feature__icon">📮</div><h3>Response time</h3><p>We usually reply within one business day.</p></div>
+          <div class="feature" style="margin-top:12px"><div class="feature__icon">📍</div><h3>Office</h3><p>Remote-first, serving travelers globally.</p></div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer id="footer" data-component="site-footer"></footer>
+  <script src="assets/js/components.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      var f = document.getElementById('contactForm');
+      var s = document.getElementById('contactStatus');
+      f.addEventListener('submit', function(e){
+        e.preventDefault();
+        var body = { name: document.getElementById('name').value, email: document.getElementById('email').value, message: document.getElementById('message').value };
+        fetch('/api/contact', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) })
+          .then(function(r){ return r.json(); })
+          .then(function(resp){ if(resp && resp.ok){ s.textContent = 'Thanks! We\'ll get back to you shortly.'; f.reset(); } else { s.textContent = (resp && resp.error) || 'Please check your details and try again.'; } })
+          .catch(function(){ s.textContent = 'Network error. Please try again.'; });
+      });
+    });
+  </script>
+</body>
+</html>
+
+

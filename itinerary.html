@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Itinerary Builder – Wanderly</title>
+  <meta name="description" content="Create and organize your travel plan with dates, notes, and export.">
+  <link rel="canonical" href="/itinerary.html">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header id="header" data-component="site-header"></header>
+  <main id="main" class="section">
+    <div class="container">
+      <h1>Itinerary builder</h1>
+      <p>Create and organize your travel plan. All changes are saved locally.</p>
+      <div id="itinList" class="cards" style="margin-bottom:20px"></div>
+      <section class="section section--alt" style="padding:20px;border-radius:16px">
+        <h2>Add item</h2>
+        <form id="itinForm" class="search" style="grid-template-columns:1fr 180px 1fr auto">
+          <input id="itinTitle" type="text" placeholder="Title (e.g., Flight to Bali)" required>
+          <input id="itinDate" type="date">
+          <input id="itinLocation" type="text" placeholder="Location (optional)">
+          <button class="btn btn--primary" type="submit">Add</button>
+          <textarea id="itinNotes" placeholder="Notes (optional)" style="grid-column:1/-1;margin-top:10px;height:80px;border:1px solid var(--border);border-radius:10px;padding:.7rem .8rem;font:inherit"></textarea>
+        </form>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+          <button id="itinExport" class="btn">Export JSON</button>
+          <button id="itinPrint" class="btn">Print</button>
+          <button id="itinClear" class="btn">Clear all</button>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer id="footer" data-component="site-footer"></footer>
+  <script src="assets/js/components.js" defer></script>
+  <script src="assets/js/pages.js" defer></script>
+</body>
+</html>
+
+

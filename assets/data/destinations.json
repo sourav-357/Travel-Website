@@ -1,0 +1,15 @@
+[
+  {"id":"dest_bali","name":"Bali","country":"Indonesia","category":"beach","image":"assets/img/placeholder.svg","featured":true},
+  {"id":"dest_kyoto","name":"Kyoto","country":"Japan","category":"culture","image":"assets/img/placeholder.svg","featured":true},
+  {"id":"dest_paris","name":"Paris","country":"France","category":"city","image":"assets/img/placeholder.svg","featured":true},
+  {"id":"dest_cape","name":"Cape Town","country":"South Africa","category":"nature","image":"assets/img/placeholder.svg","featured":true},
+  {"id":"dest_reyk","name":"Reykjavík","country":"Iceland","category":"adventure","image":"assets/img/placeholder.svg","featured":true},
+  {"id":"dest_queen","name":"Queenstown","country":"New Zealand","category":"adventure","image":"assets/img/placeholder.svg","featured":false},
+  {"id":"dest_amalfi","name":"Amalfi Coast","country":"Italy","category":"beach","image":"assets/img/placeholder.svg","featured":false},
+  {"id":"dest_maui","name":"Maui","country":"USA","category":"beach","image":"assets/img/placeholder.svg","featured":false},
+  {"id":"dest_tokyo","name":"Tokyo","country":"Japan","category":"city","image":"assets/img/placeholder.svg","featured":false},
+  {"id":"dest_barcelona","name":"Barcelona","country":"Spain","category":"city","image":"assets/img/placeholder.svg","featured":false},
+  {"id":"dest_banff","name":"Banff","country":"Canada","category":"nature","image":"assets/img/placeholder.svg","featured":false}
+]
+
+
