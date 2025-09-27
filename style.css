@@ -11,6 +11,87 @@ html {
 
 /* About Section */
 .about-section {
+  position: relative;
+  padding: 150px 20px;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.about-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: -1;
+}
+
+.about-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(60%);
+}
+
+.about-overlay {
+  position: absolute;
+  top:0; left:0; right:0; bottom:0;
+  background: linear-gradient(135deg, rgba(102,126,234,0.6), rgba(118,75,162,0.6));
+}
+
+.about-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.about-content {
+  animation: fadeInUp 1s ease forwards;
+}
+
+.about-text {
+  font-size: 1.3rem;
+  margin: 1.5rem 0 3rem;
+  opacity: 0.9;
+  line-height: 1.7;
+}
+
+.about-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.highlight {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+.highlight:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.15);
+}
+.highlight i {
+  font-size: 2rem;
+  color: #ffd700;
+  margin-bottom: 1rem;
+}
+.highlight h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+@keyframes fadeInUp {
+  0% {opacity: 0; transform: translateY(30px);}
+  100% {opacity: 1; transform: translateY(0);}
+}
+
+
+/* About Section */
+.about-section {
   padding: 120px 0;
   background: #fff;
 }
