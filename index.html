@@ -33,34 +33,102 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-background">
-            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Beautiful Travel Destination" class="hero-bg-image">
-            <div class="hero-overlay"></div>
-        </div>
-        <div class="hero-content">
-            <h1 class="hero-title" data-aos="fade-up">Discover Extraordinary Destinations</h1>
-            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">From the pristine beaches of the Maldives to the majestic peaks of the Swiss Alps, explore over 150 destinations across 6 continents with our expertly curated travel experiences</p>
-            <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
-                <div class="hero-stat">
-                    <span class="stat-number">150+</span>
-                    <span class="stat-label">Destinations</span>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="hero-title-main">Discover Your</span>
+                        <span class="hero-title-highlight">Perfect Escape</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Curated luxury travel experiences that transform your wanderlust into unforgettable memories. 
+                        From exotic destinations to hidden gems, we craft journeys that exceed expectations.
+                    </p>
+                    <div class="hero-features">
+                        <div class="feature-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>100% Secure Booking</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-clock"></i>
+                            <span>24/7 Support</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-star"></i>
+                            <span>Premium Quality</span>
+                        </div>
+                    </div>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary" onclick="scrollToSection('destinations')">
+                            <span>Explore Destinations</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <button class="btn btn-outline" onclick="scrollToSection('packages-section')">
+                            <i class="fas fa-play"></i>
+                            <span>Watch Our Story</span>
+                        </button>
+                    </div>
                 </div>
-                <div class="hero-stat">
-                    <span class="stat-number">50K+</span>
-                    <span class="stat-label">Happy Travelers</span>
-                </div>
-                <div class="hero-stat">
-                    <span class="stat-number">98%</span>
-                    <span class="stat-label">Satisfaction Rate</span>
+                <div class="hero-visual">
+                    <div class="hero-image-container">
+                        <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Luxury Travel" class="hero-main-image">
+                        <div class="hero-image-overlay"></div>
+                    </div>
+                    <div class="floating-cards">
+                        <div class="floating-card card-1">
+                            <div class="card-icon">
+                                <i class="fas fa-plane"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>Flight Included</h4>
+                                <p>All packages include flights</p>
+                            </div>
+                        </div>
+                        <div class="floating-card card-2">
+                            <div class="card-icon">
+                                <i class="fas fa-hotel"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>5-Star Hotels</h4>
+                                <p>Luxury accommodation</p>
+                            </div>
+                        </div>
+                        <div class="floating-card card-3">
+                            <div class="card-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>Fine Dining</h4>
+                                <p>Gourmet experiences</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="hero-buttons" data-aos="fade-up" data-aos-delay="600">
-                <button class="btn btn-primary" onclick="scrollToSection('destinations')">Start Your Journey</button>
-                <button class="btn btn-secondary" onclick="scrollToSection('packages-section')">View Our Packages</button>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Destinations</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50K+</div>
+                    <div class="stat-label">Happy Travelers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Satisfaction Rate</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Support</div>
+                </div>
             </div>
         </div>
-        <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="800">
-            <div class="scroll-arrow" onclick="scrollToSection('interactive-map-section')"></div>
+        <div class="scroll-indicator">
+            <div class="scroll-text">Scroll to explore</div>
+            <div class="scroll-arrow" onclick="scrollToSection('destinations')">
+                <i class="fas fa-chevron-down"></i>
+            </div>
         </div>
     </section>
 
