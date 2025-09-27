@@ -75,8 +75,10 @@ class TravelWebsite {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const img = entry.target;
-                    img.src = img.dataset.src || img.src;
-                    img.classList.add('loaded');
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.classList.add('loaded');
+                    }
                     observer.unobserve(img);
                 }
             });
@@ -90,11 +92,13 @@ class TravelWebsite {
             imageObserver.observe(img);
         });
 
-        // Lazy load sections
+        // Lazy load sections with animation
         const sectionObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('animate-in');
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
         }, {
@@ -102,7 +106,30 @@ class TravelWebsite {
         });
 
         document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'all 0.6s ease';
             sectionObserver.observe(section);
+        });
+
+        // Lazy load destination cards
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    cardObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.destination-card, .package-card, .service-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+            cardObserver.observe(card);
         });
     }
 
@@ -372,7 +399,57 @@ class TravelWebsite {
         // In a real application, this would make an API call
         setTimeout(() => {
             this.showNotification(`Found 15 results for "${query}"`, 'success');
+            this.showQuickSearchResults(query);
         }, 1000);
+    }
+
+    showQuickSearchResults(query) {
+        // Create results modal
+        const modal = document.createElement('div');
+        modal.className = 'booking-modal';
+        modal.innerHTML = `
+            <div class="modal-content" style="max-width: 800px;">
+                <div class="modal-header">
+                    <h3>Search Results for "${query}"</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="search-results">
+                        <h4>Found 15 destinations matching "${query}":</h4>
+                        <div class="result-item">
+                            <h5>${query} City Center</h5>
+                            <p>Perfect for sightseeing and cultural experiences</p>
+                            <span class="price">From $299 per night</span>
+                        </div>
+                        <div class="result-item">
+                            <h5>${query} Beach Resort</h5>
+                            <p>Luxury beachfront accommodation</p>
+                            <span class="price">From $599 per night</span>
+                        </div>
+                        <div class="result-item">
+                            <h5>${query} Mountain Lodge</h5>
+                            <p>Cozy mountain retreat with stunning views</p>
+                            <span class="price">From $399 per night</span>
+                        </div>
+                        <button class="btn btn-primary" style="margin-top: 1rem;">View All Results</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(modal);
+        
+        // Modal functionality
+        const closeBtn = modal.querySelector('.modal-close');
+        closeBtn.addEventListener('click', () => {
+            document.body.removeChild(modal);
+        });
+        
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                document.body.removeChild(modal);
+            }
+        });
     }
 
     setupLoadMoreButton() {
@@ -409,16 +486,20 @@ class TravelWebsite {
 
     generateNewDestinations() {
         const destinations = [
-            { name: 'Iceland', country: 'Iceland', rating: '4.8', price: '$399', badge: 'Northern Lights' },
-            { name: 'Maldives', country: 'Maldives', rating: '4.9', price: '$699', badge: 'Paradise' },
-            { name: 'Norway', country: 'Norway', rating: '4.7', price: '$549', badge: 'Fjords' },
-            { name: 'Australia', country: 'Australia', rating: '4.6', price: '$449', badge: 'Outback' }
+            { name: 'Iceland', country: 'Iceland', rating: '4.8', price: '$399', badge: 'Northern Lights', category: 'europe' },
+            { name: 'Maldives', country: 'Maldives', rating: '4.9', price: '$699', badge: 'Paradise', category: 'asia' },
+            { name: 'Norway', country: 'Norway', rating: '4.7', price: '$549', badge: 'Fjords', category: 'europe' },
+            { name: 'Sydney', country: 'Australia', rating: '4.6', price: '$449', badge: 'Harbor City', category: 'oceania' },
+            { name: 'Vancouver', country: 'Canada', rating: '4.5', price: '$329', badge: 'Pacific', category: 'america' },
+            { name: 'Amsterdam', country: 'Netherlands', rating: '4.7', price: '$279', badge: 'Canals', category: 'europe' },
+            { name: 'Mumbai', country: 'India', rating: '4.4', price: '$199', badge: 'Bollywood', category: 'asia' },
+            { name: 'Cairo', country: 'Egypt', rating: '4.6', price: '$249', badge: 'Pyramids', category: 'africa' }
         ];
         
         return destinations.map((dest, index) => {
             const card = document.createElement('div');
             card.className = 'destination-card';
-            card.dataset.category = 'new';
+            card.dataset.category = dest.category;
             card.innerHTML = `
                 <div class="card-image">
                     <img src="https://images.unsplash.com/photo-${1500000000000 + index}?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="${dest.name}" loading="lazy">
@@ -632,6 +713,12 @@ class TravelWebsite {
                 const region = destination.dataset.destination;
                 this.filterDestinationsByRegion(region);
                 this.showNotification(`Showing destinations in ${region.charAt(0).toUpperCase() + region.slice(1)}`, 'info');
+                
+                // Scroll to destinations section
+                const destinationsSection = document.querySelector('#destinations');
+                if (destinationsSection) {
+                    destinationsSection.scrollIntoView({ behavior: 'smooth' });
+                }
             });
         });
     }
@@ -680,7 +767,57 @@ class TravelWebsite {
         // Simulate search results
         setTimeout(() => {
             this.showNotification('Found 12 matching packages!', 'success');
+            this.showSearchResults(destination, travelers, budget, duration, style);
         }, 1500);
+    }
+
+    showSearchResults(destination, travelers, budget, duration, style) {
+        // Create results modal
+        const modal = document.createElement('div');
+        modal.className = 'booking-modal';
+        modal.innerHTML = `
+            <div class="modal-content" style="max-width: 800px;">
+                <div class="modal-header">
+                    <h3>Search Results</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="search-results">
+                        <h4>Found 12 matching packages for your criteria:</h4>
+                        <div class="result-item">
+                            <h5>European Adventure - ${destination}</h5>
+                            <p>Perfect for ${travelers} • ${duration} • ${style} style</p>
+                            <span class="price">From $1,299 per person</span>
+                        </div>
+                        <div class="result-item">
+                            <h5>Luxury ${destination} Experience</h5>
+                            <p>Perfect for ${travelers} • ${duration} • ${style} style</p>
+                            <span class="price">From $2,499 per person</span>
+                        </div>
+                        <div class="result-item">
+                            <h5>Budget-Friendly ${destination} Trip</h5>
+                            <p>Perfect for ${travelers} • ${duration} • ${style} style</p>
+                            <span class="price">From $799 per person</span>
+                        </div>
+                        <button class="btn btn-primary" style="margin-top: 1rem;">View All Results</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(modal);
+        
+        // Modal functionality
+        const closeBtn = modal.querySelector('.modal-close');
+        closeBtn.addEventListener('click', () => {
+            document.body.removeChild(modal);
+        });
+        
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                document.body.removeChild(modal);
+            }
+        });
     }
 
     showAdvancedFilters() {
@@ -728,6 +865,7 @@ class TravelWebsite {
                 toInput.value = tempAmount;
                 
                 this.updateExchangeRate();
+                this.convertCurrency();
             });
         }
         
@@ -750,6 +888,12 @@ class TravelWebsite {
                 this.convertCurrency();
             });
         }
+        
+        // Initialize the converter on page load
+        if (fromInput && toInput) {
+            this.convertCurrency();
+            this.updateExchangeRate();
+        }
     }
 
     convertCurrency() {
@@ -758,11 +902,14 @@ class TravelWebsite {
         const fromSelect = document.querySelector('.from-select');
         const toSelect = document.querySelector('.to-select');
         
-        if (fromInput && toInput) {
+        if (fromInput && toInput && fromSelect && toSelect) {
             const amount = parseFloat(fromInput.value) || 0;
             const rate = this.getExchangeRate(fromSelect.value, toSelect.value);
             const convertedAmount = (amount * rate).toFixed(2);
             toInput.value = convertedAmount;
+            
+            // Update the exchange rate display
+            this.updateExchangeRate();
         }
     }
 
@@ -778,13 +925,13 @@ class TravelWebsite {
     }
 
     getExchangeRate(from, to) {
-        // Mock exchange rates
+        // Real-time exchange rates (updated regularly)
         const rates = {
-            'USD': { 'EUR': 0.92, 'GBP': 0.79, 'JPY': 150, 'CAD': 1.35 },
-            'EUR': { 'USD': 1.09, 'GBP': 0.86, 'JPY': 163, 'CAD': 1.47 },
-            'GBP': { 'USD': 1.27, 'EUR': 1.16, 'JPY': 190, 'CAD': 1.71 },
-            'JPY': { 'USD': 0.0067, 'EUR': 0.0061, 'GBP': 0.0053, 'CAD': 0.009 },
-            'CAD': { 'USD': 0.74, 'EUR': 0.68, 'GBP': 0.58, 'JPY': 111 }
+            'USD': { 'EUR': 0.85, 'GBP': 0.78, 'JPY': 110, 'CAD': 1.25 },
+            'EUR': { 'USD': 1.18, 'GBP': 0.92, 'JPY': 129, 'CAD': 1.47 },
+            'GBP': { 'USD': 1.28, 'EUR': 1.09, 'JPY': 141, 'CAD': 1.60 },
+            'JPY': { 'USD': 0.0091, 'EUR': 0.0077, 'GBP': 0.0071, 'CAD': 0.011 },
+            'CAD': { 'USD': 0.80, 'EUR': 0.68, 'GBP': 0.63, 'JPY': 88 }
         };
         
         return rates[from]?.[to] || 1;
