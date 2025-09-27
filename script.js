@@ -668,12 +668,12 @@ class TravelWebsite {
     }
 
     performAdvancedSearch() {
-        const destination = document.querySelector('.search-group:nth-child(1) select').value;
-        const dates = document.querySelector('.search-group:nth-child(2) input').value;
-        const travelers = document.querySelector('.search-group:nth-child(3) select').value;
-        const budget = document.querySelector('.search-group:nth-child(4) select').value;
-        const duration = document.querySelector('.search-group:nth-child(5) select').value;
-        const style = document.querySelector('.search-group:nth-child(6) select').value;
+        const destination = document.querySelector('.search-row:nth-child(1) .search-group:nth-child(1) select').value;
+        const dates = document.querySelector('.search-row:nth-child(1) .search-group:nth-child(2) input').value;
+        const travelers = document.querySelector('.search-row:nth-child(1) .search-group:nth-child(3) select').value;
+        const budget = document.querySelector('.search-row:nth-child(2) .search-group:nth-child(1) select').value;
+        const duration = document.querySelector('.search-row:nth-child(2) .search-group:nth-child(2) select').value;
+        const style = document.querySelector('.search-row:nth-child(2) .search-group:nth-child(3) select').value;
         
         this.showNotification(`Searching for ${travelers} traveling to ${destination} with ${budget} budget...`, 'info');
         
@@ -710,10 +710,10 @@ class TravelWebsite {
     // Currency Converter Functionality
     setupCurrencyConverter() {
         const swapBtn = document.querySelector('.swap-btn');
-        const fromSelect = document.querySelector('.currency-group:nth-child(1) select');
-        const toSelect = document.querySelector('.currency-group:nth-child(3) select');
-        const fromInput = document.querySelector('.currency-group:nth-child(1) input');
-        const toInput = document.querySelector('.currency-group:nth-child(3) input');
+        const fromSelect = document.querySelector('.from-select');
+        const toSelect = document.querySelector('.to-select');
+        const fromInput = document.querySelector('.from-input');
+        const toInput = document.querySelector('.to-input');
         
         if (swapBtn) {
             swapBtn.addEventListener('click', () => {
@@ -753,10 +753,10 @@ class TravelWebsite {
     }
 
     convertCurrency() {
-        const fromInput = document.querySelector('.currency-group:nth-child(1) input');
-        const toInput = document.querySelector('.currency-group:nth-child(3) input');
-        const fromSelect = document.querySelector('.currency-group:nth-child(1) select');
-        const toSelect = document.querySelector('.currency-group:nth-child(3) select');
+        const fromInput = document.querySelector('.from-input');
+        const toInput = document.querySelector('.to-input');
+        const fromSelect = document.querySelector('.from-select');
+        const toSelect = document.querySelector('.to-select');
         
         if (fromInput && toInput) {
             const amount = parseFloat(fromInput.value) || 0;
@@ -767,9 +767,9 @@ class TravelWebsite {
     }
 
     updateExchangeRate() {
-        const fromSelect = document.querySelector('.currency-group:nth-child(1) select');
-        const toSelect = document.querySelector('.currency-group:nth-child(3) select');
-        const rateDisplay = document.querySelector('.exchange-rate p');
+        const fromSelect = document.querySelector('.from-select');
+        const toSelect = document.querySelector('.to-select');
+        const rateDisplay = document.querySelector('.rate-display');
         
         if (rateDisplay && fromSelect && toSelect) {
             const rate = this.getExchangeRate(fromSelect.value, toSelect.value);

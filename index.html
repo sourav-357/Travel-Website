@@ -33,6 +33,7 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-background">
+            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Travel Background" class="hero-bg-image">
             <div class="hero-overlay"></div>
         </div>
         <div class="hero-content">
@@ -71,6 +72,7 @@
             </div>
             <div class="map-container">
                 <div class="world-map">
+                    <img src="https://images.unsplash.com/photo-1519302959554-a75be0afc82a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="World Map" class="map-background">
                     <div class="map-destination" data-destination="europe" style="top: 25%; left: 45%;">
                         <div class="map-pin">
                             <i class="fas fa-map-marker-alt"></i>
@@ -325,17 +327,17 @@
             </div>
             <div class="currency-converter">
                 <div class="converter-row">
-                    <div class="currency-group">
+                    <div class="currency-group from-group">
                         <label>From</label>
                         <div class="currency-input-group">
-                            <select class="currency-select">
+                            <select class="currency-select from-select">
                                 <option value="USD">USD - US Dollar</option>
                                 <option value="EUR">EUR - Euro</option>
                                 <option value="GBP">GBP - British Pound</option>
                                 <option value="JPY">JPY - Japanese Yen</option>
                                 <option value="CAD">CAD - Canadian Dollar</option>
                             </select>
-                            <input type="number" class="currency-input" value="1000" placeholder="Amount">
+                            <input type="number" class="currency-input from-input" value="1000" placeholder="Amount">
                         </div>
                     </div>
                     <div class="currency-swap">
@@ -343,22 +345,22 @@
                             <i class="fas fa-exchange-alt"></i>
                         </button>
                     </div>
-                    <div class="currency-group">
+                    <div class="currency-group to-group">
                         <label>To</label>
                         <div class="currency-input-group">
-                            <select class="currency-select">
+                            <select class="currency-select to-select">
                                 <option value="EUR">EUR - Euro</option>
                                 <option value="USD">USD - US Dollar</option>
                                 <option value="GBP">GBP - British Pound</option>
                                 <option value="JPY">JPY - Japanese Yen</option>
                                 <option value="CAD">CAD - Canadian Dollar</option>
                             </select>
-                            <input type="number" class="currency-input" value="920" placeholder="Converted Amount" readonly>
+                            <input type="number" class="currency-input to-input" value="920" placeholder="Converted Amount" readonly>
                         </div>
                     </div>
                 </div>
                 <div class="exchange-rate">
-                    <p>1 USD = 0.92 EUR</p>
+                    <p class="rate-display">1 USD = 0.92 EUR</p>
                     <span class="rate-update">Last updated: 2 minutes ago</span>
                 </div>
             </div>
@@ -917,28 +919,52 @@
                         <i class="fas fa-plane"></i>
                     </div>
                     <h3>Flight Booking</h3>
-                    <p>Find the best deals on flights to your dream destinations</p>
+                    <p>Find the best deals on flights to your dream destinations with our 24/7 booking service</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> Best Price Guarantee</span>
+                        <span><i class="fas fa-check"></i> 24/7 Support</span>
+                        <span><i class="fas fa-check"></i> Flexible Cancellation</span>
+                    </div>
+                    <div class="service-price">From $299</div>
                 </div>
                 <div class="service-card" data-aos="fade-right" data-aos-delay="200">
                     <div class="service-icon">
                         <i class="fas fa-hotel"></i>
                     </div>
                     <h3>Hotel Reservations</h3>
-                    <p>Luxury accommodations at unbeatable prices</p>
+                    <p>Luxury accommodations at unbeatable prices with exclusive partner rates</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> 5-Star Properties</span>
+                        <span><i class="fas fa-check"></i> Exclusive Rates</span>
+                        <span><i class="fas fa-check"></i> Free Upgrades</span>
+                    </div>
+                    <div class="service-price">From $199/night</div>
                 </div>
                 <div class="service-card" data-aos="fade-right" data-aos-delay="300">
                     <div class="service-icon">
                         <i class="fas fa-car"></i>
                     </div>
                     <h3>Car Rental</h3>
-                    <p>Explore your destination with our premium car rental service</p>
+                    <p>Explore your destination with our premium car rental service and local expertise</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> Premium Vehicles</span>
+                        <span><i class="fas fa-check"></i> GPS Navigation</span>
+                        <span><i class="fas fa-check"></i> Insurance Included</span>
+                    </div>
+                    <div class="service-price">From $49/day</div>
                 </div>
                 <div class="service-card" data-aos="fade-right" data-aos-delay="400">
                     <div class="service-icon">
                         <i class="fas fa-map"></i>
                     </div>
                     <h3>Travel Guide</h3>
-                    <p>Expert local guides for an authentic experience</p>
+                    <p>Expert local guides for an authentic experience and insider knowledge</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> Local Experts</span>
+                        <span><i class="fas fa-check"></i> Custom Itineraries</span>
+                        <span><i class="fas fa-check"></i> Cultural Insights</span>
+                    </div>
+                    <div class="service-price">From $99/day</div>
                 </div>
             </div>
         </div>
@@ -1015,6 +1041,70 @@
                                 <span>Toronto, Canada</span>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right">
+                    <h2 class="section-title">About Wanderlust</h2>
+                    <p class="about-description">
+                        For over 15 years, Wanderlust has been creating extraordinary travel experiences that transform lives. 
+                        We believe that travel is not just about visiting new places, but about discovering yourself and 
+                        connecting with the world in meaningful ways.
+                    </p>
+                    <div class="about-stats">
+                        <div class="about-stat">
+                            <h3>15+</h3>
+                            <p>Years of Excellence</p>
+                        </div>
+                        <div class="about-stat">
+                            <h3>150+</h3>
+                            <p>Destinations Worldwide</p>
+                        </div>
+                        <div class="about-stat">
+                            <h3>50K+</h3>
+                            <p>Happy Travelers</p>
+                        </div>
+                        <div class="about-stat">
+                            <h3>98%</h3>
+                            <p>Satisfaction Rate</p>
+                        </div>
+                    </div>
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-award"></i>
+                            <div>
+                                <h4>Award-Winning Service</h4>
+                                <p>Recognized by Travel Weekly as Best Travel Agency 2023</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <h4>100% Secure Booking</h4>
+                                <p>Your payments and personal data are fully protected</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-headset"></i>
+                            <div>
+                                <h4>24/7 Support</h4>
+                                <p>Round-the-clock assistance for all your travel needs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="About Us" loading="lazy">
+                    <div class="about-badge">
+                        <i class="fas fa-star"></i>
+                        <span>Trusted by 50,000+ Travelers</span>
                     </div>
                 </div>
             </div>
@@ -1147,6 +1237,95 @@
                     <div class="faq-answer">
                         <p>Booking is easy! Simply browse our packages, select your preferred dates, fill out the booking form, and make payment. Our team will confirm your booking within 24 hours.</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contact Us</h2>
+                <p class="section-subtitle">Get in touch with our travel experts for personalized assistance</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item" data-aos="fade-right" data-aos-delay="100">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Visit Our Office</h3>
+                            <p>123 Travel Street, Adventure City<br>AC 12345, United States</p>
+                            <span class="contact-hours">Mon-Fri: 9AM-6PM</span>
+                        </div>
+                    </div>
+                    <div class="contact-item" data-aos="fade-right" data-aos-delay="200">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Call Us</h3>
+                            <p>+1 (555) 123-4567</p>
+                            <span class="contact-hours">24/7 Emergency Support</span>
+                        </div>
+                    </div>
+                    <div class="contact-item" data-aos="fade-right" data-aos-delay="300">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email Us</h3>
+                            <p>info@wanderlust.com</p>
+                            <span class="contact-hours">Response within 2 hours</span>
+                        </div>
+                    </div>
+                    <div class="contact-item" data-aos="fade-right" data-aos-delay="400">
+                        <div class="contact-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Live Chat</h3>
+                            <p>Available 24/7</p>
+                            <span class="contact-hours">Instant responses</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-container" data-aos="fade-left" data-aos-delay="200">
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="booking">Booking Inquiry</option>
+                                <option value="support">Customer Support</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="partnership">Partnership</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Tell us how we can help you..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
