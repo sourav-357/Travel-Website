@@ -345,7 +345,10 @@ body {
     font-weight: 800;
     color: #ffd700;
     margin-bottom: 0.5rem;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
 }
 
 .stat-label {

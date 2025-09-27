@@ -126,6 +126,19 @@ class TravelWebsite {
 
         // Observe all images with loading="lazy"
         document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+            // Add error handling for images
+            img.addEventListener('error', function() {
+                console.log('Image failed to load:', this.src);
+                // Add a fallback placeholder
+                this.style.background = 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)';
+                this.style.display = 'flex';
+                this.style.alignItems = 'center';
+                this.style.justifyContent = 'center';
+                this.style.color = '#666';
+                this.style.fontSize = '14px';
+                this.innerHTML = 'Image not available';
+            });
+            
             imageObserver.observe(img);
         });
 
@@ -385,10 +398,35 @@ class TravelWebsite {
                     const updateCounter = () => {
                         current += increment;
                         if (current < target) {
-                            counter.textContent = Math.floor(current).toLocaleString();
+                            let displayValue = Math.floor(current);
+                            
+                            // Format based on the target value
+                            if (target === 150) {
+                                counter.textContent = displayValue + '+';
+                            } else if (target === 50000) {
+                                counter.textContent = (displayValue / 1000).toFixed(0) + 'K+';
+                            } else if (target === 98) {
+                                counter.textContent = displayValue + '%';
+                            } else if (target === 24) {
+                                counter.textContent = '24/7';
+                            } else {
+                                counter.textContent = displayValue.toLocaleString();
+                            }
+                            
                             requestAnimationFrame(updateCounter);
                         } else {
-                            counter.textContent = target.toLocaleString();
+                            // Final value formatting
+                            if (target === 150) {
+                                counter.textContent = '150+';
+                            } else if (target === 50000) {
+                                counter.textContent = '50K+';
+                            } else if (target === 98) {
+                                counter.textContent = '98%';
+                            } else if (target === 24) {
+                                counter.textContent = '24/7';
+                            } else {
+                                counter.textContent = target.toLocaleString();
+                            }
                         }
                     };
                     
