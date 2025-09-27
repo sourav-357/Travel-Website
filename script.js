@@ -34,6 +34,43 @@ class TravelWebsite {
         this.setupSocialFeatures();
     }
 
+    setupMobileMenu() {
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                
+                // Prevent body scroll when menu is open
+                if (navMenu.classList.contains('active')) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            // Close menu when window is resized
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+    }
+
     setupEventListeners() {
         // Mobile menu toggle
         const hamburger = document.querySelector('.hamburger');
@@ -219,6 +256,15 @@ class TravelWebsite {
         
         // Testimonial slider
         this.setupTestimonialSlider();
+        
+        // Contact form
+        this.setupContactForm();
+        
+        // Newsletter form
+        this.setupNewsletterForm();
+        
+        // FAQ accordion
+        this.setupFAQAccordion();
     }
 
     setupNavbarScroll() {
@@ -1078,6 +1124,30 @@ class TravelWebsite {
         this.showNotification(`Opening social media post for ${location}`, 'info');
     }
 
+    // Contact Form Functionality
+    setupContactForm() {
+        const contactForm = document.querySelector('.contact-form');
+        
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const formData = new FormData(contactForm);
+                const name = formData.get('name');
+                const email = formData.get('email');
+                const subject = formData.get('subject');
+                const message = formData.get('message');
+                
+                if (this.validateEmail(email)) {
+                    this.showNotification('Thank you for your message! We\'ll get back to you soon.', 'success');
+                    contactForm.reset();
+                } else {
+                    this.showNotification('Please enter a valid email address.', 'error');
+                }
+            });
+        }
+    }
+
     // Enhanced Utility Functions
     setupEnhancedFeatures() {
         // Add smooth scrolling to all internal links
@@ -1112,6 +1182,21 @@ class TravelWebsite {
 document.addEventListener('DOMContentLoaded', () => {
     new TravelWebsite();
 });
+
+// Global utility functions
+function scrollToSection(sectionId) {
+    const element = document.getElementById(sectionId) || document.querySelector(`.${sectionId}`);
+    if (element) {
+        const offsetTop = element.offsetTop - 80;
+        window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+        });
+    }
+}
+
+// Make scrollToSection globally available
+window.scrollToSection = scrollToSection;
 
 // Additional utility functions
 const utils = {

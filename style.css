@@ -34,6 +34,11 @@ body {
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 }
 
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
+}
+
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -798,10 +803,23 @@ body {
         transition: 0.3s;
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
         padding: 2rem 0;
+        z-index: 999;
     }
     
     .nav-menu.active {
         left: 0;
+    }
+    
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
     }
     
     .hero-title {
@@ -1529,6 +1547,33 @@ html {
 
 [data-aos="zoom-in"].aos-animate {
     transform: scale(1);
+}
+
+/* Enhanced AOS animations */
+[data-aos="fade-up"] {
+    transform: translateY(50px);
+}
+
+[data-aos="fade-down"] {
+    transform: translateY(-50px);
+}
+
+[data-aos="fade-up"].aos-animate,
+[data-aos="fade-down"].aos-animate {
+    transform: translateY(0);
+}
+
+[data-aos="flip-left"] {
+    transform: perspective(1000px) rotateY(-100deg);
+}
+
+[data-aos="flip-right"] {
+    transform: perspective(1000px) rotateY(100deg);
+}
+
+[data-aos="flip-left"].aos-animate,
+[data-aos="flip-right"].aos-animate {
+    transform: perspective(1000px) rotateY(0deg);
 }
 
 /* Enhanced Mobile Responsiveness */
@@ -2959,6 +3004,62 @@ html {
 .contact {
     padding: 100px 0;
     background: #f8f9fa;
+}
+
+/* Additional utility classes */
+.scroll-to-section {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.scroll-to-section:hover {
+    transform: translateY(-2px);
+}
+
+/* Enhanced button styles */
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+/* Loading states */
+.loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .contact-content {
