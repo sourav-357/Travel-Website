@@ -25,6 +25,13 @@ class TravelWebsite {
         this.setupTestimonialSlider();
         this.setupScrollToTop();
         this.setupPreloader();
+        this.setupInteractiveMap();
+        this.setupAdvancedSearch();
+        this.setupWeatherWidget();
+        this.setupCurrencyConverter();
+        this.setupVirtualTours();
+        this.setupLiveChat();
+        this.setupSocialFeatures();
     }
 
     setupEventListeners() {
@@ -614,6 +621,343 @@ class TravelWebsite {
                 document.body.removeChild(notification);
             }, 300);
         }, 3000);
+    }
+
+    // Interactive Map Functionality
+    setupInteractiveMap() {
+        const mapDestinations = document.querySelectorAll('.map-destination');
+        
+        mapDestinations.forEach(destination => {
+            destination.addEventListener('click', () => {
+                const region = destination.dataset.destination;
+                this.filterDestinationsByRegion(region);
+                this.showNotification(`Showing destinations in ${region.charAt(0).toUpperCase() + region.slice(1)}`, 'info');
+            });
+        });
+    }
+
+    filterDestinationsByRegion(region) {
+        const destinationCards = document.querySelectorAll('.destination-card');
+        
+        destinationCards.forEach(card => {
+            if (region === 'all' || card.dataset.category === region) {
+                card.style.display = 'block';
+                card.style.animation = 'fadeInUp 0.5s ease forwards';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    // Advanced Search Functionality
+    setupAdvancedSearch() {
+        const searchBtnPrimary = document.querySelector('.search-btn-primary');
+        const searchBtnSecondary = document.querySelector('.search-btn-secondary');
+        
+        if (searchBtnPrimary) {
+            searchBtnPrimary.addEventListener('click', () => {
+                this.performAdvancedSearch();
+            });
+        }
+        
+        if (searchBtnSecondary) {
+            searchBtnSecondary.addEventListener('click', () => {
+                this.showAdvancedFilters();
+            });
+        }
+    }
+
+    performAdvancedSearch() {
+        const destination = document.querySelector('.search-group:nth-child(1) select').value;
+        const dates = document.querySelector('.search-group:nth-child(2) input').value;
+        const travelers = document.querySelector('.search-group:nth-child(3) select').value;
+        const budget = document.querySelector('.search-group:nth-child(4) select').value;
+        const duration = document.querySelector('.search-group:nth-child(5) select').value;
+        const style = document.querySelector('.search-group:nth-child(6) select').value;
+        
+        this.showNotification(`Searching for ${travelers} traveling to ${destination} with ${budget} budget...`, 'info');
+        
+        // Simulate search results
+        setTimeout(() => {
+            this.showNotification('Found 12 matching packages!', 'success');
+        }, 1500);
+    }
+
+    showAdvancedFilters() {
+        this.showNotification('Advanced filters panel coming soon!', 'info');
+    }
+
+    // Weather Widget Functionality
+    setupWeatherWidget() {
+        const weatherCards = document.querySelectorAll('.weather-card');
+        
+        weatherCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const location = card.querySelector('h3').textContent;
+                this.showWeatherDetails(location);
+            });
+        });
+    }
+
+    showWeatherDetails(location) {
+        this.showNotification(`Loading detailed weather forecast for ${location}...`, 'info');
+        
+        setTimeout(() => {
+            this.showNotification(`Weather details for ${location} loaded!`, 'success');
+        }, 1000);
+    }
+
+    // Currency Converter Functionality
+    setupCurrencyConverter() {
+        const swapBtn = document.querySelector('.swap-btn');
+        const fromSelect = document.querySelector('.currency-group:nth-child(1) select');
+        const toSelect = document.querySelector('.currency-group:nth-child(3) select');
+        const fromInput = document.querySelector('.currency-group:nth-child(1) input');
+        const toInput = document.querySelector('.currency-group:nth-child(3) input');
+        
+        if (swapBtn) {
+            swapBtn.addEventListener('click', () => {
+                // Swap currencies
+                const tempCurrency = fromSelect.value;
+                fromSelect.value = toSelect.value;
+                toSelect.value = tempCurrency;
+                
+                // Swap amounts
+                const tempAmount = fromInput.value;
+                fromInput.value = toInput.value;
+                toInput.value = tempAmount;
+                
+                this.updateExchangeRate();
+            });
+        }
+        
+        if (fromInput) {
+            fromInput.addEventListener('input', () => {
+                this.convertCurrency();
+            });
+        }
+        
+        if (fromSelect) {
+            fromSelect.addEventListener('change', () => {
+                this.updateExchangeRate();
+                this.convertCurrency();
+            });
+        }
+        
+        if (toSelect) {
+            toSelect.addEventListener('change', () => {
+                this.updateExchangeRate();
+                this.convertCurrency();
+            });
+        }
+    }
+
+    convertCurrency() {
+        const fromInput = document.querySelector('.currency-group:nth-child(1) input');
+        const toInput = document.querySelector('.currency-group:nth-child(3) input');
+        const fromSelect = document.querySelector('.currency-group:nth-child(1) select');
+        const toSelect = document.querySelector('.currency-group:nth-child(3) select');
+        
+        if (fromInput && toInput) {
+            const amount = parseFloat(fromInput.value) || 0;
+            const rate = this.getExchangeRate(fromSelect.value, toSelect.value);
+            const convertedAmount = (amount * rate).toFixed(2);
+            toInput.value = convertedAmount;
+        }
+    }
+
+    updateExchangeRate() {
+        const fromSelect = document.querySelector('.currency-group:nth-child(1) select');
+        const toSelect = document.querySelector('.currency-group:nth-child(3) select');
+        const rateDisplay = document.querySelector('.exchange-rate p');
+        
+        if (rateDisplay && fromSelect && toSelect) {
+            const rate = this.getExchangeRate(fromSelect.value, toSelect.value);
+            rateDisplay.textContent = `1 ${fromSelect.value} = ${rate} ${toSelect.value}`;
+        }
+    }
+
+    getExchangeRate(from, to) {
+        // Mock exchange rates
+        const rates = {
+            'USD': { 'EUR': 0.92, 'GBP': 0.79, 'JPY': 150, 'CAD': 1.35 },
+            'EUR': { 'USD': 1.09, 'GBP': 0.86, 'JPY': 163, 'CAD': 1.47 },
+            'GBP': { 'USD': 1.27, 'EUR': 1.16, 'JPY': 190, 'CAD': 1.71 },
+            'JPY': { 'USD': 0.0067, 'EUR': 0.0061, 'GBP': 0.0053, 'CAD': 0.009 },
+            'CAD': { 'USD': 0.74, 'EUR': 0.68, 'GBP': 0.58, 'JPY': 111 }
+        };
+        
+        return rates[from]?.[to] || 1;
+    }
+
+    // Virtual Tours Functionality
+    setupVirtualTours() {
+        const playBtns = document.querySelectorAll('.play-btn');
+        
+        playBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const tourCard = btn.closest('.virtual-tour-card');
+                const tourTitle = tourCard.querySelector('h4').textContent;
+                this.startVirtualTour(tourTitle);
+            });
+        });
+    }
+
+    startVirtualTour(tourTitle) {
+        this.showNotification(`Starting virtual tour: ${tourTitle}`, 'info');
+        
+        // Simulate tour loading
+        setTimeout(() => {
+            this.showNotification('Virtual tour loaded! Enjoy your 360° experience.', 'success');
+        }, 2000);
+    }
+
+    // Live Chat Functionality
+    setupLiveChat() {
+        const chatToggle = document.querySelector('.chat-toggle');
+        const chatWindow = document.querySelector('.chat-window');
+        const chatClose = document.querySelector('.chat-close');
+        const sendBtn = document.querySelector('.send-btn');
+        const chatInput = document.querySelector('.chat-input input');
+        
+        if (chatToggle && chatWindow) {
+            chatToggle.addEventListener('click', () => {
+                chatWindow.classList.toggle('active');
+            });
+        }
+        
+        if (chatClose && chatWindow) {
+            chatClose.addEventListener('click', () => {
+                chatWindow.classList.remove('active');
+            });
+        }
+        
+        if (sendBtn && chatInput) {
+            sendBtn.addEventListener('click', () => {
+                this.sendChatMessage(chatInput.value);
+                chatInput.value = '';
+            });
+        }
+        
+        if (chatInput) {
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    this.sendChatMessage(chatInput.value);
+                    chatInput.value = '';
+                }
+            });
+        }
+    }
+
+    sendChatMessage(message) {
+        if (!message.trim()) return;
+        
+        const chatMessages = document.querySelector('.chat-messages');
+        
+        // Add user message
+        const userMessage = document.createElement('div');
+        userMessage.className = 'message user-message';
+        userMessage.innerHTML = `
+            <div class="message-content">
+                <p>${message}</p>
+            </div>
+            <div class="message-avatar">
+                <i class="fas fa-user"></i>
+            </div>
+        `;
+        chatMessages.appendChild(userMessage);
+        
+        // Simulate bot response
+        setTimeout(() => {
+            const botResponse = this.getBotResponse(message);
+            const botMessage = document.createElement('div');
+            botMessage.className = 'message bot-message';
+            botMessage.innerHTML = `
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <p>${botResponse}</p>
+                </div>
+            `;
+            chatMessages.appendChild(botMessage);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }, 1000);
+        
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    getBotResponse(message) {
+        const responses = {
+            'hello': 'Hello! I\'m here to help you plan your perfect trip. What destination are you interested in?',
+            'price': 'Our packages start from $199 per night. Would you like to see our current deals?',
+            'booking': 'I can help you with booking! Which package interests you most?',
+            'weather': 'I can provide weather information for any destination. Which location would you like to know about?',
+            'default': 'That\'s a great question! I\'d be happy to help you with travel planning. Could you tell me more about your travel preferences?'
+        };
+        
+        const lowerMessage = message.toLowerCase();
+        
+        for (const [key, response] of Object.entries(responses)) {
+            if (lowerMessage.includes(key)) {
+                return response;
+            }
+        }
+        
+        return responses.default;
+    }
+
+    // Social Features Functionality
+    setupSocialFeatures() {
+        const socialPosts = document.querySelectorAll('.social-post');
+        const socialBtn = document.querySelector('.social-btn');
+        
+        socialPosts.forEach(post => {
+            post.addEventListener('click', () => {
+                const location = post.querySelector('.social-location span').textContent;
+                this.showSocialPost(location);
+            });
+        });
+        
+        if (socialBtn) {
+            socialBtn.addEventListener('click', () => {
+                this.showNotification('Redirecting to Instagram...', 'info');
+            });
+        }
+    }
+
+    showSocialPost(location) {
+        this.showNotification(`Opening social media post for ${location}`, 'info');
+    }
+
+    // Enhanced Utility Functions
+    setupEnhancedFeatures() {
+        // Add smooth scrolling to all internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(anchor.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Add loading states to buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (!this.classList.contains('loading')) {
+                    this.classList.add('loading');
+                    setTimeout(() => {
+                        this.classList.remove('loading');
+                    }, 2000);
+                }
+            });
+        });
     }
 }
 
