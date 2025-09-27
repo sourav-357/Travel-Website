@@ -3,11 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wanderlust - Premium Travel Experiences</title>
+    <title>Wanderlust - Premium Travel Experiences | Luxury Travel Agency</title>
+    <meta name="description" content="Discover extraordinary travel experiences with Wanderlust. Premium luxury travel packages, curated destinations, and personalized service for discerning travelers worldwide.">
+    <meta name="keywords" content="luxury travel, premium travel agency, curated destinations, travel packages, vacation planning, luxury hotels, exclusive experiences">
+    <meta name="author" content="Wanderlust Travel">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Wanderlust - Premium Travel Experiences">
+    <meta property="og:description" content="Discover extraordinary travel experiences with Wanderlust. Premium luxury travel packages and curated destinations worldwide.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wanderlust-travel.com">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Wanderlust - Premium Travel Experiences">
+    <meta name="twitter:description" content="Discover extraordinary travel experiences with Wanderlust. Premium luxury travel packages and curated destinations worldwide.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TravelAgency",
+        "name": "Wanderlust",
+        "description": "Premium luxury travel agency offering curated destinations and extraordinary travel experiences worldwide.",
+        "url": "https://wanderlust-travel.com",
+        "logo": "https://wanderlust-travel.com/logo.png",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+1-800-WANDER",
+            "contactType": "customer service",
+            "availableLanguage": "English"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "US"
+        },
+        "sameAs": [
+            "https://facebook.com/wanderlusttravel",
+            "https://instagram.com/wanderlusttravel",
+            "https://twitter.com/wanderlusttravel"
+        ]
+    }
+    </script>
 </head>
 <body>
     <!-- Navigation -->
@@ -35,7 +85,7 @@
     <section id="home" class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <div class="hero-text">
+                <div class="hero-text animate-fadeInLeft">
                     <h1 class="hero-title">
                         <span class="hero-title-main">Discover Your</span>
                         <span class="hero-title-highlight">Perfect Escape</span>
@@ -69,7 +119,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="hero-visual">
+                <div class="hero-visual animate-fadeInRight">
                     <div class="hero-image-container">
                         <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Luxury Travel" class="hero-main-image">
                         <div class="hero-image-overlay"></div>
@@ -771,18 +821,18 @@
     <section id="destinations" class="destinations">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Popular Destinations</h2>
-                <p class="section-subtitle">Discover amazing places around the world</p>
+                <h2 class="section-title">Curated Destinations</h2>
+                <p class="section-subtitle">Handpicked destinations that offer extraordinary experiences and unforgettable memories</p>
                 <div class="filter-tabs">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="europe">Europe</button>
-                    <button class="filter-btn" data-filter="asia">Asia</button>
-                    <button class="filter-btn" data-filter="america">America</button>
-                    <button class="filter-btn" data-filter="africa">Africa</button>
+                    <button class="filter-btn active" data-filter="all">All Destinations</button>
+                    <button class="filter-btn" data-filter="europe">European Classics</button>
+                    <button class="filter-btn" data-filter="asia">Asian Wonders</button>
+                    <button class="filter-btn" data-filter="america">Americas Adventure</button>
+                    <button class="filter-btn" data-filter="africa">African Safari</button>
                 </div>
             </div>
             <div class="destinations-grid">
-                <div class="destination-card" data-category="europe" data-aos="fade-up" data-aos-delay="100">
+                <div class="destination-card hover-lift" data-category="europe" data-aos="fade-up" data-aos-delay="100">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Santorini" loading="lazy">
                         <div class="card-overlay">
@@ -807,7 +857,7 @@
                         <div class="card-badge">Best Seller</div>
                     </div>
                 </div>
-                <div class="destination-card" data-category="asia" data-aos="fade-up" data-aos-delay="200">
+                <div class="destination-card hover-lift" data-category="asia" data-aos="fade-up" data-aos-delay="200">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1518391846015-55a9cc840bdf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bali" loading="lazy">
                         <div class="card-overlay">
@@ -832,7 +882,7 @@
                         <div class="card-badge">Trending</div>
                     </div>
                 </div>
-                <div class="destination-card" data-category="europe" data-aos="fade-up" data-aos-delay="300">
+                <div class="destination-card hover-lift" data-category="europe" data-aos="fade-up" data-aos-delay="300">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1502602898536-47ad22581b52?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Paris" loading="lazy">
                         <div class="card-overlay">
@@ -857,7 +907,7 @@
                         <div class="card-badge">Premium</div>
                     </div>
                 </div>
-                <div class="destination-card" data-category="asia" data-aos="fade-up" data-aos-delay="400">
+                <div class="destination-card hover-lift" data-category="asia" data-aos="fade-up" data-aos-delay="400">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tokyo" loading="lazy">
                         <div class="card-overlay">
@@ -882,7 +932,7 @@
                         <div class="card-badge">New</div>
                     </div>
                 </div>
-                <div class="destination-card" data-category="asia" data-aos="fade-up" data-aos-delay="500">
+                <div class="destination-card hover-lift" data-category="asia" data-aos="fade-up" data-aos-delay="500">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dubai" loading="lazy">
                         <div class="card-overlay">
@@ -907,7 +957,7 @@
                         <div class="card-badge">Luxury</div>
                     </div>
                 </div>
-                <div class="destination-card" data-category="america" data-aos="fade-up" data-aos-delay="600">
+                <div class="destination-card hover-lift" data-category="america" data-aos="fade-up" data-aos-delay="600">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="New York" loading="lazy">
                         <div class="card-overlay">
@@ -932,7 +982,7 @@
                         <div class="card-badge">Popular</div>
                     </div>
                 </div>
-                <div class="destination-card" data-category="africa" data-aos="fade-up" data-aos-delay="700">
+                <div class="destination-card hover-lift" data-category="africa" data-aos="fade-up" data-aos-delay="700">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Safari" loading="lazy">
                         <div class="card-overlay">
@@ -957,7 +1007,7 @@
                         <div class="card-badge">Adventure</div>
                     </div>
                 </div>
-                <div class="destination-card" data-category="europe" data-aos="fade-up" data-aos-delay="800">
+                <div class="destination-card hover-lift" data-category="europe" data-aos="fade-up" data-aos-delay="800">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1539650116574-75c0c6d73c6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Switzerland" loading="lazy">
                         <div class="card-overlay">
@@ -982,7 +1032,7 @@
                         <div class="card-badge">Scenic</div>
                     </div>
                 </div>
-                <div class="destination-card" data-category="europe" data-aos="fade-up" data-aos-delay="900">
+                <div class="destination-card hover-lift" data-category="europe" data-aos="fade-up" data-aos-delay="900">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1520637836862-4d197d17c93a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Rome" loading="lazy">
                         <div class="card-overlay">
@@ -1007,7 +1057,7 @@
                         <div class="card-badge">Historic</div>
                     </div>
                 </div>
-                <div class="destination-card" data-category="europe" data-aos="fade-up" data-aos-delay="1000">
+                <div class="destination-card hover-lift" data-category="europe" data-aos="fade-up" data-aos-delay="1000">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1513639776629-7b61b0ac49cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Barcelona" loading="lazy">
                         <div class="card-overlay">
@@ -1032,7 +1082,7 @@
                         <div class="card-badge">Cultural</div>
                     </div>
                 </div>
-                <div class="destination-card" data-category="asia" data-aos="fade-up" data-aos-delay="1100">
+                <div class="destination-card hover-lift" data-category="asia" data-aos="fade-up" data-aos-delay="1100">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bangkok" loading="lazy">
                         <div class="card-overlay">
@@ -1057,7 +1107,7 @@
                         <div class="card-badge">Vibrant</div>
                     </div>
                 </div>
-                <div class="destination-card" data-category="asia" data-aos="fade-up" data-aos-delay="1200">
+                <div class="destination-card hover-lift" data-category="asia" data-aos="fade-up" data-aos-delay="1200">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Singapore" loading="lazy">
                         <div class="card-overlay">
@@ -1082,7 +1132,7 @@
                         <div class="card-badge">Modern</div>
                     </div>
                 </div>
-                <div class="destination-card" data-category="asia" data-aos="fade-up" data-aos-delay="1300">
+                <div class="destination-card hover-lift" data-category="asia" data-aos="fade-up" data-aos-delay="1300">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1502602898536-47ad22581b52?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Seoul" loading="lazy">
                         <div class="card-overlay">
@@ -1107,7 +1157,7 @@
                         <div class="card-badge">Trending</div>
                     </div>
                 </div>
-                <div class="destination-card" data-category="america" data-aos="fade-up" data-aos-delay="1400">
+                <div class="destination-card hover-lift" data-category="america" data-aos="fade-up" data-aos-delay="1400">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Los Angeles" loading="lazy">
                         <div class="card-overlay">
@@ -1132,7 +1182,7 @@
                         <div class="card-badge">Entertainment</div>
                     </div>
                 </div>
-                <div class="destination-card" data-category="america" data-aos="fade-up" data-aos-delay="1500">
+                <div class="destination-card hover-lift" data-category="america" data-aos="fade-up" data-aos-delay="1500">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Toronto" loading="lazy">
                         <div class="card-overlay">
@@ -1157,7 +1207,7 @@
                         <div class="card-badge">Multicultural</div>
                     </div>
                 </div>
-                <div class="destination-card" data-category="america" data-aos="fade-up" data-aos-delay="1600">
+                <div class="destination-card hover-lift" data-category="america" data-aos="fade-up" data-aos-delay="1600">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1502602898536-47ad22581b52?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Rio de Janeiro" loading="lazy">
                         <div class="card-overlay">
@@ -1182,7 +1232,7 @@
                         <div class="card-badge">Festive</div>
                     </div>
                 </div>
-                <div class="destination-card" data-category="africa" data-aos="fade-up" data-aos-delay="1700">
+                <div class="destination-card hover-lift" data-category="africa" data-aos="fade-up" data-aos-delay="1700">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cape Town" loading="lazy">
                         <div class="card-overlay">
@@ -1207,7 +1257,7 @@
                         <div class="card-badge">Stunning</div>
                     </div>
                 </div>
-                <div class="destination-card" data-category="africa" data-aos="fade-up" data-aos-delay="1800">
+                <div class="destination-card hover-lift" data-category="africa" data-aos="fade-up" data-aos-delay="1800">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1502602898536-47ad22581b52?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Marrakech" loading="lazy">
                         <div class="card-overlay">
@@ -1412,11 +1462,11 @@
     <section id="services" class="services">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Our Services</h2>
-                <p class="section-subtitle">Everything you need for the perfect trip</p>
+                <h2 class="section-title">Premium Travel Services</h2>
+                <p class="section-subtitle">Comprehensive travel solutions designed to elevate your journey from planning to return</p>
             </div>
             <div class="services-grid">
-                <div class="service-card" data-aos="fade-right" data-aos-delay="100">
+                <div class="service-card hover-lift" data-aos="fade-right" data-aos-delay="100">
                     <div class="service-icon">
                         <i class="fas fa-plane"></i>
                     </div>
@@ -1429,7 +1479,7 @@
                     </div>
                     <div class="service-price">From $299</div>
                 </div>
-                <div class="service-card" data-aos="fade-right" data-aos-delay="200">
+                <div class="service-card hover-lift" data-aos="fade-right" data-aos-delay="200">
                     <div class="service-icon">
                         <i class="fas fa-hotel"></i>
                     </div>
@@ -1442,7 +1492,7 @@
                     </div>
                     <div class="service-price">From $199/night</div>
                 </div>
-                <div class="service-card" data-aos="fade-right" data-aos-delay="300">
+                <div class="service-card hover-lift" data-aos="fade-right" data-aos-delay="300">
                     <div class="service-icon">
                         <i class="fas fa-car"></i>
                     </div>
@@ -1455,7 +1505,7 @@
                     </div>
                     <div class="service-price">From $49/day</div>
                 </div>
-                <div class="service-card" data-aos="fade-right" data-aos-delay="400">
+                <div class="service-card hover-lift" data-aos="fade-right" data-aos-delay="400">
                     <div class="service-icon">
                         <i class="fas fa-map"></i>
                     </div>
@@ -1468,7 +1518,7 @@
                     </div>
                     <div class="service-price">From $99/day</div>
                 </div>
-                <div class="service-card" data-aos="fade-right" data-aos-delay="500">
+                <div class="service-card hover-lift" data-aos="fade-right" data-aos-delay="500">
                     <div class="service-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
@@ -1481,7 +1531,7 @@
                     </div>
                     <div class="service-price">From $49/trip</div>
                 </div>
-                <div class="service-card" data-aos="fade-right" data-aos-delay="600">
+                <div class="service-card hover-lift" data-aos="fade-right" data-aos-delay="600">
                     <div class="service-icon">
                         <i class="fas fa-utensils"></i>
                     </div>
@@ -1494,7 +1544,7 @@
                     </div>
                     <div class="service-price">From $25/reservation</div>
                 </div>
-                <div class="service-card" data-aos="fade-right" data-aos-delay="700">
+                <div class="service-card hover-lift" data-aos="fade-right" data-aos-delay="700">
                     <div class="service-icon">
                         <i class="fas fa-ticket-alt"></i>
                     </div>
@@ -1515,8 +1565,8 @@
     <section class="testimonials">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">What Our Travelers Say</h2>
-                <p class="section-subtitle">Real experiences from real travelers</p>
+                <h2 class="section-title">Stories That Inspire</h2>
+                <p class="section-subtitle">Real experiences from travelers who discovered their perfect escape with us</p>
             </div>
             <div class="testimonials-slider">
                 <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
@@ -1555,12 +1605,20 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <p>"Professional service and incredible destinations. Highly recommended for luxury travel."</p>
+                        <p>"The African safari experience was beyond our wildest dreams. The attention to detail, from the luxury lodges to the expert wildlife guides, made this a once-in-a-lifetime adventure. We saw the Big Five and so much more. The team's knowledge of local culture and wildlife was impressive."</p>
+                        <div class="testimonial-trip">
+                            <span class="trip-destination">Serengeti Safari Adventure</span>
+                            <span class="trip-date">September 2024</span>
+                        </div>
                         <div class="testimonial-author">
                             <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Michael Chen" loading="lazy">
                             <div class="author-info">
                                 <h4>Michael Chen</h4>
                                 <span>London, UK</span>
+                                <div class="author-verified">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Verified Traveler</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1574,12 +1632,47 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <p>"Outstanding customer service and attention to detail. Made our family vacation perfect!"</p>
+                        <p>"As a family with young children, we were nervous about international travel. Wanderlust made everything seamless - from airport transfers to child-friendly accommodations. Our kids still talk about the cultural experiences in Japan. The 24/7 support gave us peace of mind throughout our journey."</p>
+                        <div class="testimonial-trip">
+                            <span class="trip-destination">Family Cultural Journey</span>
+                            <span class="trip-date">August 2024</span>
+                        </div>
                         <div class="testimonial-author">
                             <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Emma Davis" loading="lazy">
                             <div class="author-info">
                                 <h4>Emma Davis</h4>
                                 <span>Toronto, Canada</span>
+                                <div class="author-verified">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Verified Traveler</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"The luxury Asian tour exceeded all expectations. From the private temple visits in Thailand to the exclusive dining experiences in Tokyo, every detail was carefully curated. The local guides were exceptional, and the accommodations were world-class. This was truly a transformative experience."</p>
+                        <div class="testimonial-trip">
+                            <span class="trip-destination">Luxury Asian Experience</span>
+                            <span class="trip-date">July 2024</span>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="David Rodriguez" loading="lazy">
+                            <div class="author-info">
+                                <h4>David Rodriguez</h4>
+                                <span>Barcelona, Spain</span>
+                                <div class="author-verified">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Verified Traveler</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1593,11 +1686,12 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-text" data-aos="fade-right">
-                    <h2 class="section-title">About Wanderlust</h2>
+                    <h2 class="section-title">Crafting Extraordinary Journeys</h2>
                     <p class="about-description">
-                        For over 15 years, Wanderlust has been creating extraordinary travel experiences that transform lives. 
-                        We believe that travel is not just about visiting new places, but about discovering yourself and 
-                        connecting with the world in meaningful ways.
+                        For over 15 years, Wanderlust has been the trusted partner for discerning travelers seeking 
+                        extraordinary experiences. We don't just plan trips – we craft transformative journeys that 
+                        connect you with the world's most remarkable destinations, cultures, and moments that become 
+                        the stories you'll tell for a lifetime.
                     </p>
                     <div class="about-stats">
                         <div class="about-stat">
