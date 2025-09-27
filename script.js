@@ -766,6 +766,15 @@ class TravelWebsite {
                     destinationsSection.scrollIntoView({ behavior: 'smooth' });
                 }
             });
+            
+            // Add hover effects
+            destination.addEventListener('mouseenter', () => {
+                destination.style.transform = 'scale(1.1)';
+            });
+            
+            destination.addEventListener('mouseleave', () => {
+                destination.style.transform = 'scale(1)';
+            });
         });
     }
 
@@ -886,6 +895,60 @@ class TravelWebsite {
         this.showNotification(`Loading detailed weather forecast for ${location}...`, 'info');
         
         setTimeout(() => {
+            // Create weather details modal
+            const modal = document.createElement('div');
+            modal.className = 'booking-modal';
+            modal.innerHTML = `
+                <div class="modal-content" style="max-width: 600px;">
+                    <div class="modal-header">
+                        <h3>Weather Forecast - ${location}</h3>
+                        <button class="modal-close">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="weather-forecast">
+                            <div class="forecast-day">
+                                <h4>Today</h4>
+                                <div class="weather-info">
+                                    <i class="fas fa-sun"></i>
+                                    <span>24°C</span>
+                                    <span>Sunny</span>
+                                </div>
+                            </div>
+                            <div class="forecast-day">
+                                <h4>Tomorrow</h4>
+                                <div class="weather-info">
+                                    <i class="fas fa-cloud-sun"></i>
+                                    <span>22°C</span>
+                                    <span>Partly Cloudy</span>
+                                </div>
+                            </div>
+                            <div class="forecast-day">
+                                <h4>Day After</h4>
+                                <div class="weather-info">
+                                    <i class="fas fa-cloud"></i>
+                                    <span>20°C</span>
+                                    <span>Cloudy</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Modal functionality
+            const closeBtn = modal.querySelector('.modal-close');
+            closeBtn.addEventListener('click', () => {
+                document.body.removeChild(modal);
+            });
+            
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    document.body.removeChild(modal);
+                }
+            });
+            
             this.showNotification(`Weather details for ${location} loaded!`, 'success');
         }, 1000);
     }
@@ -999,6 +1062,66 @@ class TravelWebsite {
 
     startVirtualTour(tourTitle) {
         this.showNotification(`Starting virtual tour: ${tourTitle}`, 'info');
+        
+        // Create virtual tour modal
+        const modal = document.createElement('div');
+        modal.className = 'booking-modal';
+        modal.innerHTML = `
+            <div class="modal-content" style="max-width: 900px; height: 600px;">
+                <div class="modal-header">
+                    <h3>Virtual Tour - ${tourTitle}</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-body" style="padding: 0; height: 500px;">
+                    <div class="virtual-tour-container" style="width: 100%; height: 100%; background: #000; position: relative; display: flex; align-items: center; justify-content: center; color: white;">
+                        <div class="tour-controls" style="position: absolute; top: 20px; left: 20px; z-index: 10;">
+                            <button class="tour-btn" style="background: rgba(255,255,255,0.2); border: none; color: white; padding: 10px; margin: 5px; border-radius: 5px; cursor: pointer;">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <button class="tour-btn" style="background: rgba(255,255,255,0.2); border: none; color: white; padding: 10px; margin: 5px; border-radius: 5px; cursor: pointer;">
+                                <i class="fas fa-pause"></i>
+                            </button>
+                            <button class="tour-btn" style="background: rgba(255,255,255,0.2); border: none; color: white; padding: 10px; margin: 5px; border-radius: 5px; cursor: pointer;">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                        <div class="tour-content" style="text-align: center;">
+                            <h4 style="font-size: 2rem; margin-bottom: 1rem;">360° Virtual Experience</h4>
+                            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Use your mouse to look around and explore this amazing destination</p>
+                            <div class="tour-progress" style="width: 80%; height: 4px; background: rgba(255,255,255,0.3); border-radius: 2px; margin: 0 auto;">
+                                <div class="progress-bar" style="width: 0%; height: 100%; background: #667eea; border-radius: 2px; transition: width 0.3s ease;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(modal);
+        
+        // Modal functionality
+        const closeBtn = modal.querySelector('.modal-close');
+        closeBtn.addEventListener('click', () => {
+            document.body.removeChild(modal);
+        });
+        
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                document.body.removeChild(modal);
+            }
+        });
+        
+        // Simulate tour progress
+        const progressBar = modal.querySelector('.progress-bar');
+        let progress = 0;
+        const interval = setInterval(() => {
+            progress += 2;
+            progressBar.style.width = progress + '%';
+            if (progress >= 100) {
+                clearInterval(interval);
+                this.showNotification('Virtual tour completed! Enjoy your 360° experience.', 'success');
+            }
+        }, 100);
         
         // Simulate tour loading
         setTimeout(() => {
@@ -1122,6 +1245,59 @@ class TravelWebsite {
 
     showSocialPost(location) {
         this.showNotification(`Opening social media post for ${location}`, 'info');
+        
+        // Create social media modal
+        const modal = document.createElement('div');
+        modal.className = 'booking-modal';
+        modal.innerHTML = `
+            <div class="modal-content" style="max-width: 600px;">
+                <div class="modal-header">
+                    <h3>Social Media Post - ${location}</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="social-post-detail">
+                        <div class="post-image" style="width: 100%; height: 300px; background: linear-gradient(45deg, #667eea, #764ba2); border-radius: 10px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">
+                            <i class="fas fa-image" style="font-size: 3rem; opacity: 0.7;"></i>
+                        </div>
+                        <div class="post-content">
+                            <h4>Amazing ${location} Experience!</h4>
+                            <p>Just had the most incredible time exploring ${location}. The culture, food, and people were absolutely wonderful. Can't wait to come back! 🌟</p>
+                            <div class="post-stats" style="display: flex; gap: 2rem; margin: 1rem 0; color: #666;">
+                                <span><i class="fas fa-heart" style="color: #e74c3c;"></i> 2.3K likes</span>
+                                <span><i class="fas fa-comment" style="color: #3498db;"></i> 89 comments</span>
+                                <span><i class="fas fa-share" style="color: #27ae60;"></i> 156 shares</span>
+                            </div>
+                            <div class="post-actions" style="display: flex; gap: 1rem; margin-top: 1rem;">
+                                <button class="btn btn-primary" style="padding: 8px 16px; font-size: 0.9rem;">
+                                    <i class="fas fa-heart"></i> Like
+                                </button>
+                                <button class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.9rem;">
+                                    <i class="fas fa-comment"></i> Comment
+                                </button>
+                                <button class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.9rem;">
+                                    <i class="fas fa-share"></i> Share
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(modal);
+        
+        // Modal functionality
+        const closeBtn = modal.querySelector('.modal-close');
+        closeBtn.addEventListener('click', () => {
+            document.body.removeChild(modal);
+        });
+        
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                document.body.removeChild(modal);
+            }
+        });
     }
 
     // Contact Form Functionality

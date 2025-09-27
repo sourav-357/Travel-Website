@@ -1686,6 +1686,7 @@ html {
 .rating-count {
     font-size: 0.8rem;
     opacity: 0.8;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .card-features {
@@ -1701,6 +1702,7 @@ html {
     display: flex;
     align-items: center;
     gap: 0.3rem;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .card-features i {
@@ -2853,6 +2855,14 @@ html {
     .hero-stat .stat-number {
         font-size: 1.8rem;
     }
+    
+    .weather-forecast {
+        grid-template-columns: 1fr;
+    }
+    
+    .forecast-day {
+        margin-bottom: 1rem;
+    }
 }
 
 /* About Section */
@@ -2998,6 +3008,44 @@ html {
     .about-stats {
         grid-template-columns: 1fr;
     }
+}
+
+/* Weather Forecast Modal */
+.weather-forecast {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.forecast-day {
+    text-align: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.forecast-day h4 {
+    margin: 0 0 1rem 0;
+    color: #333;
+    font-size: 1rem;
+}
+
+.weather-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.weather-info i {
+    font-size: 2rem;
+    color: #ffc107;
+}
+
+.weather-info span {
+    font-weight: 600;
+    color: #333;
 }
 
 /* Contact Section */
