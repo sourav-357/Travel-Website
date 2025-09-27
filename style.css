@@ -535,6 +535,38 @@ body {
     font-size: 0.9rem;
 }
 
+.testimonial-trip {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+    padding: 0.8rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.trip-destination {
+    font-weight: 600;
+    color: #667eea;
+}
+
+.trip-date {
+    color: #666;
+}
+
+.author-verified {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-top: 0.3rem;
+    font-size: 0.8rem;
+    color: #28a745;
+}
+
+.author-verified i {
+    font-size: 0.7rem;
+}
+
 /* Newsletter Section */
 .newsletter {
     padding: 80px 0;
@@ -1511,20 +1543,225 @@ html {
     }
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-    width: 8px;
+/* Hero Stats */
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
 }
 
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
+.hero-stat {
+    text-align: center;
 }
 
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 4px;
+.hero-stat .stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 0.5rem;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+.hero-stat .stat-label {
+    font-size: 1rem;
+    opacity: 0.9;
+    color: white;
+}
+
+/* Enhanced Card Details */
+.card-details {
+    margin-top: 1rem;
+}
+
+.card-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.rating-count {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.card-features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin-top: 0.5rem;
+}
+
+.card-features span {
+    font-size: 0.8rem;
+    opacity: 0.9;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.card-features i {
+    color: #ffd700;
+    font-size: 0.7rem;
+}
+
+/* Package Enhancements */
+.package-description {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.package-itinerary {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.package-itinerary h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.package-itinerary ul {
+    list-style: none;
+    padding: 0;
+}
+
+.package-itinerary li {
+    padding: 0.3rem 0;
+    font-size: 0.9rem;
+    color: #666;
+    position: relative;
+    padding-left: 1rem;
+}
+
+.package-itinerary li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #28a745;
+    font-weight: bold;
+}
+
+.package-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.package-features span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.package-features i {
+    color: #28a745;
+    font-size: 0.8rem;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 1rem;
+    margin-left: 0.5rem;
+}
+
+.package-savings {
+    background: #28a745;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+/* Blog Enhancements */
+.blog-read-time {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+}
+
+.blog-views {
+    color: #999;
+    font-size: 0.8rem;
+}
+
+.blog-excerpt {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.blog-tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background: #f8f9fa;
+    color: #667eea;
+    padding: 0.2rem 0.6rem;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+/* FAQ Enhancements */
+.faq-answer ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.faq-answer li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.faq-answer strong {
+    color: #333;
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+    .hero-stats {
+        gap: 2rem;
+    }
+    
+    .hero-stat .stat-number {
+        font-size: 2rem;
+    }
+    
+    .package-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .package-itinerary {
+        padding: 0.8rem;
+    }
+    
+    .blog-tags {
+        justify-content: center;
+    }
 }
