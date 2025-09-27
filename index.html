@@ -1,13 +1,634 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>travel-website</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust - Premium Travel Experiences</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Wanderlust</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#destinations" class="nav-link">Destinations</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">Discover the World</h1>
+            <p class="hero-subtitle">Experience breathtaking destinations with our premium travel packages</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary">Explore Now</button>
+                <button class="btn btn-secondary">Watch Video</button>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Search Bar -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-box">
+                <div class="search-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <input type="text" placeholder="Where to?" class="search-input">
+                </div>
+                <div class="search-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <input type="date" class="search-input">
+                </div>
+                <div class="search-item">
+                    <i class="fas fa-users"></i>
+                    <select class="search-input">
+                        <option>Guests</option>
+                        <option>1 Guest</option>
+                        <option>2 Guests</option>
+                        <option>3+ Guests</option>
+                    </select>
+                </div>
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                    Search
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section id="destinations" class="destinations">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Popular Destinations</h2>
+                <p class="section-subtitle">Discover amazing places around the world</p>
+                <div class="filter-tabs">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="europe">Europe</button>
+                    <button class="filter-btn" data-filter="asia">Asia</button>
+                    <button class="filter-btn" data-filter="america">America</button>
+                    <button class="filter-btn" data-filter="africa">Africa</button>
+                </div>
+            </div>
+            <div class="destinations-grid">
+                <div class="destination-card" data-category="europe" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Santorini" loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-content">
+                                <h3>Santorini</h3>
+                                <p>Greece</p>
+                                <div class="card-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.9</span>
+                                </div>
+                                <div class="card-price">From $299/night</div>
+                            </div>
+                        </div>
+                        <div class="card-badge">Best Seller</div>
+                    </div>
+                </div>
+                <div class="destination-card" data-category="asia" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1518391846015-55a9cc840bdf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bali" loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-content">
+                                <h3>Bali</h3>
+                                <p>Indonesia</p>
+                                <div class="card-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.8</span>
+                                </div>
+                                <div class="card-price">From $199/night</div>
+                            </div>
+                        </div>
+                        <div class="card-badge">Trending</div>
+                    </div>
+                </div>
+                <div class="destination-card" data-category="europe" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1502602898536-47ad22581b52?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Paris" loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-content">
+                                <h3>Paris</h3>
+                                <p>France</p>
+                                <div class="card-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.9</span>
+                                </div>
+                                <div class="card-price">From $399/night</div>
+                            </div>
+                        </div>
+                        <div class="card-badge">Premium</div>
+                    </div>
+                </div>
+                <div class="destination-card" data-category="asia" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tokyo" loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-content">
+                                <h3>Tokyo</h3>
+                                <p>Japan</p>
+                                <div class="card-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.7</span>
+                                </div>
+                                <div class="card-price">From $349/night</div>
+                            </div>
+                        </div>
+                        <div class="card-badge">New</div>
+                    </div>
+                </div>
+                <div class="destination-card" data-category="asia" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dubai" loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-content">
+                                <h3>Dubai</h3>
+                                <p>UAE</p>
+                                <div class="card-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.8</span>
+                                </div>
+                                <div class="card-price">From $599/night</div>
+                            </div>
+                        </div>
+                        <div class="card-badge">Luxury</div>
+                    </div>
+                </div>
+                <div class="destination-card" data-category="america" data-aos="fade-up" data-aos-delay="600">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="New York" loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-content">
+                                <h3>New York</h3>
+                                <p>USA</p>
+                                <div class="card-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.6</span>
+                                </div>
+                                <div class="card-price">From $449/night</div>
+                            </div>
+                        </div>
+                        <div class="card-badge">Popular</div>
+                    </div>
+                </div>
+                <div class="destination-card" data-category="africa" data-aos="fade-up" data-aos-delay="700">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Safari" loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-content">
+                                <h3>Safari</h3>
+                                <p>Kenya</p>
+                                <div class="card-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.9</span>
+                                </div>
+                                <div class="card-price">From $799/night</div>
+                            </div>
+                        </div>
+                        <div class="card-badge">Adventure</div>
+                    </div>
+                </div>
+                <div class="destination-card" data-category="europe" data-aos="fade-up" data-aos-delay="800">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1539650116574-75c0c6d73c6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Switzerland" loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-content">
+                                <h3>Switzerland</h3>
+                                <p>Alps</p>
+                                <div class="card-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.8</span>
+                                </div>
+                                <div class="card-price">From $499/night</div>
+                            </div>
+                        </div>
+                        <div class="card-badge">Scenic</div>
+                    </div>
+                </div>
+            </div>
+            <div class="load-more-container">
+                <button class="load-more-btn">Load More Destinations</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-number" data-target="50000">0</div>
+                    <div class="stat-label">Happy Travelers</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-number" data-target="150">0</div>
+                    <div class="stat-label">Destinations</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-number" data-target="24">0</div>
+                    <div class="stat-label">Hours Support</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-number" data-target="98">0</div>
+                    <div class="stat-label">% Satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Travel Packages Section -->
+    <section class="packages-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Exclusive Travel Packages</h2>
+                <p class="section-subtitle">Curated experiences for every type of traveler</p>
+            </div>
+            <div class="packages-grid">
+                <div class="package-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="package-image">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Romantic Getaway" loading="lazy">
+                        <div class="package-badge">Romantic</div>
+                    </div>
+                    <div class="package-content">
+                        <h3>Romantic European Escape</h3>
+                        <p>7 days of pure romance across Paris, Venice, and Santorini</p>
+                        <div class="package-features">
+                            <span><i class="fas fa-check"></i> Luxury Hotels</span>
+                            <span><i class="fas fa-check"></i> Private Tours</span>
+                            <span><i class="fas fa-check"></i> Fine Dining</span>
+                        </div>
+                        <div class="package-price">
+                            <span class="price">$2,999</span>
+                            <span class="duration">per couple</span>
+                        </div>
+                        <button class="package-btn">Book Now</button>
+                    </div>
+                </div>
+                <div class="package-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="package-image">
+                        <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Adventure Safari" loading="lazy">
+                        <div class="package-badge">Adventure</div>
+                    </div>
+                    <div class="package-content">
+                        <h3>African Safari Adventure</h3>
+                        <p>10 days exploring Kenya's wildlife and landscapes</p>
+                        <div class="package-features">
+                            <span><i class="fas fa-check"></i> Game Drives</span>
+                            <span><i class="fas fa-check"></i> Luxury Lodges</span>
+                            <span><i class="fas fa-check"></i> Expert Guides</span>
+                        </div>
+                        <div class="package-price">
+                            <span class="price">$4,499</span>
+                            <span class="duration">per person</span>
+                        </div>
+                        <button class="package-btn">Book Now</button>
+                    </div>
+                </div>
+                <div class="package-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="package-image">
+                        <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cultural Journey" loading="lazy">
+                        <div class="package-badge">Cultural</div>
+                    </div>
+                    <div class="package-content">
+                        <h3>Asian Cultural Journey</h3>
+                        <p>14 days discovering Japan, Thailand, and Vietnam</p>
+                        <div class="package-features">
+                            <span><i class="fas fa-check"></i> Temple Visits</span>
+                            <span><i class="fas fa-check"></i> Local Experiences</span>
+                            <span><i class="fas fa-check"></i> Cultural Tours</span>
+                        </div>
+                        <div class="package-price">
+                            <span class="price">$3,299</span>
+                            <span class="duration">per person</span>
+                        </div>
+                        <button class="package-btn">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">Everything you need for the perfect trip</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-right" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3>Flight Booking</h3>
+                    <p>Find the best deals on flights to your dream destinations</p>
+                </div>
+                <div class="service-card" data-aos="fade-right" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-hotel"></i>
+                    </div>
+                    <h3>Hotel Reservations</h3>
+                    <p>Luxury accommodations at unbeatable prices</p>
+                </div>
+                <div class="service-card" data-aos="fade-right" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Car Rental</h3>
+                    <p>Explore your destination with our premium car rental service</p>
+                </div>
+                <div class="service-card" data-aos="fade-right" data-aos-delay="400">
+                    <div class="service-icon">
+                        <i class="fas fa-map"></i>
+                    </div>
+                    <h3>Travel Guide</h3>
+                    <p>Expert local guides for an authentic experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What Our Travelers Say</h2>
+                <p class="section-subtitle">Real experiences from real travelers</p>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Amazing experience! The team made our honeymoon unforgettable. Every detail was perfect."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Sarah Johnson" loading="lazy">
+                            <div class="author-info">
+                                <h4>Sarah Johnson</h4>
+                                <span>New York, USA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Professional service and incredible destinations. Highly recommended for luxury travel."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Michael Chen" loading="lazy">
+                            <div class="author-info">
+                                <h4>Michael Chen</h4>
+                                <span>London, UK</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Outstanding customer service and attention to detail. Made our family vacation perfect!"</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Emma Davis" loading="lazy">
+                            <div class="author-info">
+                                <h4>Emma Davis</h4>
+                                <span>Toronto, Canada</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Travel Blog & Tips</h2>
+                <p class="section-subtitle">Insider knowledge from our travel experts</p>
+            </div>
+            <div class="blog-grid">
+                <article class="blog-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Travel Tips" loading="lazy">
+                        <div class="blog-category">Tips</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">Dec 15, 2024</span>
+                            <span class="blog-author">By Sarah Johnson</span>
+                        </div>
+                        <h3>10 Essential Travel Tips for First-Time International Travelers</h3>
+                        <p>Discover the secrets to stress-free international travel with our comprehensive guide...</p>
+                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1518391846015-55a9cc840bdf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Destination Guide" loading="lazy">
+                        <div class="blog-category">Guide</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">Dec 12, 2024</span>
+                            <span class="blog-author">By Mike Chen</span>
+                        </div>
+                        <h3>Hidden Gems of Southeast Asia: Off-the-Beaten-Path Destinations</h3>
+                        <p>Explore the lesser-known treasures of Southeast Asia that offer authentic experiences...</p>
+                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="blog-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1502602898536-47ad22581b52?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Photography" loading="lazy">
+                        <div class="blog-category">Photography</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">Dec 10, 2024</span>
+                            <span class="blog-author">By Emma Davis</span>
+                        </div>
+                        <h3>Travel Photography: Capturing Perfect Moments Around the World</h3>
+                        <p>Master the art of travel photography with professional tips and techniques...</p>
+                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Everything you need to know about traveling with us</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="faq-question">
+                        <h3>What is included in the travel packages?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our travel packages include accommodation, transportation, guided tours, meals as specified, and 24/7 customer support. Some packages also include flights and travel insurance.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="faq-question">
+                        <h3>Can I customize my travel itinerary?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We offer flexible customization options for all our packages. Our travel experts will work with you to create the perfect itinerary that matches your preferences and budget.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="faq-question">
+                        <h3>What is your cancellation policy?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer flexible cancellation policies. You can cancel up to 30 days before departure for a full refund, 15-30 days for 75% refund, and 7-15 days for 50% refund.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="faq-question">
+                        <h3>Do you provide travel insurance?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer comprehensive travel insurance options. Our insurance covers medical emergencies, trip cancellations, lost luggage, and other travel-related incidents.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+                    <div class="faq-question">
+                        <h3>How do I book a trip?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Booking is easy! Simply browse our packages, select your preferred dates, fill out the booking form, and make payment. Our team will confirm your booking within 24 hours.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Stay Updated</h2>
+                <p>Get the latest travel deals and destination updates</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" class="newsletter-input">
+                    <button class="newsletter-btn">Subscribe</button>
+                </div>
+                <div class="newsletter-benefits">
+                    <div class="benefit-item">
+                        <i class="fas fa-gift"></i>
+                        <span>Exclusive Deals</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-bell"></i>
+                        <span>Early Access</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-star"></i>
+                        <span>Premium Content</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Wanderlust</h3>
+                    <p>Creating unforgettable travel experiences around the world.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#destinations">Destinations</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Flight Booking</a></li>
+                        <li><a href="#">Hotel Reservations</a></li>
+                        <li><a href="#">Car Rental</a></li>
+                        <li><a href="#">Travel Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                        <p><i class="fas fa-envelope"></i> info@wanderlust.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Travel St, Adventure City</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Wanderlust. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
